@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Weapon
 {
+    public string name;
+
+    public ShootConfigScriptableObject shootConfig;
+
     private int maxBullets;
     private int currentBullets;
 
