@@ -10,6 +10,12 @@ public class PlayerLeanController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetAxis("LeanR") > 0 && (Input.GetAxis("LeanL") > 0))
+        {
+            animator.ResetTrigger("Right");
+            animator.ResetTrigger("Left");
+            animator.SetTrigger("Idle");
+        }
         if (Input.GetAxis("LeanL") > 0)
         {
             //if (!Physics.Raycast(transform.position, -transform.right, out Hit, 1f, layers))
@@ -34,5 +40,7 @@ public class PlayerLeanController : MonoBehaviour
             animator.ResetTrigger("Left");
             animator.SetTrigger("Idle");
         }
+       
+        
     }
 }

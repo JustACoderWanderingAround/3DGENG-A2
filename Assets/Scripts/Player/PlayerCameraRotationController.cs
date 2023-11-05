@@ -23,6 +23,6 @@ public class PlayerCameraRotationController : MonoBehaviour
         verticalRotation = Mathf.Clamp(verticalRotation, -90, 90);
 
         transform.Rotate(0, mouseX, 0);
-        Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0);
+        transform.localRotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0);
     }
 }

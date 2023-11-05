@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Weapon
 {
+    public List<Bullet> ammoTypes;
+
     public string name;
 
     public ShootConfigScriptableObject shootConfig;
