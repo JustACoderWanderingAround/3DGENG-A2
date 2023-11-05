@@ -13,6 +13,9 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 5.0f;
 
+    [SerializeField]
+    private float runningMulti = 1.25f;
+
     [Header("Ground Check")]
     public LayerMask groundLayer;
 
@@ -33,6 +36,7 @@ public class PlayerMovementController : MonoBehaviour
 
     float horizontalInput;
     float verticalInput;
+    bool isRunning;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +49,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+        isRunning = (Input.GetAxisRaw("Fire3") > 0);
         if (grounded)
             rb.drag = playerGroundDrag;
         else
@@ -57,9 +62,13 @@ public class PlayerMovementController : MonoBehaviour
     {
         // calculate player direction
         Vector3 moveDirection = new Vector3(orientation.forward.x, 0, orientation.forward.z).normalized * verticalInput + new Vector3(orientation.right.x, 0, orientation.right.z).normalized * horizontalInput;
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        if (isRunning)
+            rb.AddForce(moveDirection.normalized * (runningMulti * moveSpeed) * 10f, ForceMode.Force);
+        else
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
+        Debug.Log("IsRuning: " + isRunning);
     }
 
     private void Jump()
