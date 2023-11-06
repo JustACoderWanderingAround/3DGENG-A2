@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 direction;
+    private float velocity;
+    private Rigidbody rb;
+    public void Init(Vector3 direction, float velocity)
     {
-        
+        this.direction = direction;
+        this.velocity = velocity;
+        rb.AddForce(direction.normalized * velocity, ForceMode.Impulse);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

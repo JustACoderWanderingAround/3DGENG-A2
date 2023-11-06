@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour//, IShootObserver
 {
-    public void UpdateUI()
+    public void UpdateUI(int currentAmmo, int totalAmmo, Vector3 unused)
     {
         // todo: update UI
     }

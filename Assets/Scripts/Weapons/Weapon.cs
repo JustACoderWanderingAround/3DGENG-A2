@@ -2,16 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon
+public abstract class Weapon : MonoBehaviour
 {
-    public List<Bullet> ammoTypes;
+    [SerializeField]
+    protected GameObject bulletPrefab;
 
-    public string name;
+    //public List<Bullet> ammoTypes;
+
+    public string gunName;
 
     public ShootConfigScriptableObject shootConfig;
 
-    private int maxBullets;
-    private int currentBullets;
+
+    protected Vector3 barrelTip;
+    public Vector3 BarrelTip
+    {
+        get { return barrelTip; }
+    }
+
+    protected int maxBullets;
+    protected int currentBullets;
 
     public int MaxBullets   // property
     {
