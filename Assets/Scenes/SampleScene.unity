@@ -295,6 +295,9 @@ MonoBehaviour:
   playerHeight: 2
   playerGroundDrag: 5
   orientation: {fileID: 503559186}
+  jumpKey: 32
+  jumpCooldown: 1
+  jumpForce: 10
 --- !u!114 &488486779
 MonoBehaviour:
   m_ObjectHideFlags: 0

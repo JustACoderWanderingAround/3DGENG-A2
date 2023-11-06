@@ -21,32 +21,45 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField]
     private float playerHeight = 0.5f;
-   
+
 
     [SerializeField]
     private float playerGroundDrag  = 10f;
-    
-    bool grounded;
-    bool canJump;
 
+    [Header("Helper variables")]
     [SerializeField]
     private Transform orientation;
 
+    [Header("Jump variables")]
+    [SerializeField]
+    private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField]
+    private float jumpCooldown = 1f;
+    [SerializeField]
+    private float jumpForce = 2f;
     private Rigidbody rb;
+
+
+    bool grounded;
+    bool canJump;
+
 
     float horizontalInput;
     float verticalInput;
     bool isRunning;
+    bool isJumping;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        canJump = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Player input for ground movement
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         isRunning = (Input.GetAxisRaw("Fire3") > 0);
@@ -55,6 +68,15 @@ public class PlayerMovementController : MonoBehaviour
         else
         {
             rb.drag = 0;
+        }
+        if (Input.GetKey(jumpKey) && canJump && grounded)
+        {
+            Debug.Log("Jump");
+            canJump = false;
+
+            Jump();
+
+            Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
 
@@ -69,6 +91,7 @@ public class PlayerMovementController : MonoBehaviour
 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
         Debug.Log("IsRuning: " + isRunning);
+        Debug.Log("grounded: " + grounded);
     }
 
     private void Jump()
@@ -77,10 +100,11 @@ public class PlayerMovementController : MonoBehaviour
         // reset Y velocity just in case
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.y);
 
-        rb.AddForce(transform.up, ForceMode.Force);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
     private void ResetJump()
     {
-
+        canJump = true;
+        Debug.Log("Jump reset");
     }
 }
