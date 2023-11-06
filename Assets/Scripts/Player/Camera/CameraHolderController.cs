@@ -13,5 +13,6 @@ public class CameraHolderController : MonoBehaviour
     {
         transform.position = cameraPosition.position;
         transform.rotation = cameraRotation.rotation;
+        // TODO: Footstep camera bob
     }
 }
