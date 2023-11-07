@@ -7,12 +7,13 @@ public class Bullet : MonoBehaviour
 {
     private Vector3 direction;
     private float velocity;
-    private Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
+
     public void Init(Vector3 direction, float velocity)
     {
         this.direction = direction;
         this.velocity = velocity;
-        rb.AddForce(direction.normalized * velocity, ForceMode.Impulse);
-    }
+        rb.AddForce(direction.x * velocity, direction.y * velocity, direction.z * velocity, ForceMode.Impulse);
+    }   
     
 }

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7235651288511716653}
   - component: {fileID: 7235651288512519437}
   - component: {fileID: 7235651288513617869}
-  - component: {fileID: 264574927937274532}
+  - component: {fileID: 284146216861827057}
   m_Layer: 0
   m_Name: AK-47
   m_TagString: Untagged
@@ -116,7 +116,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &264574927937274532
+--- !u!114 &284146216861827057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5490662395887126578, guid: 20724fc406c067744a315db717b79a6f, type: 3}
-  gunName: AK47
+  gunName: AK-47
   shootConfig: {fileID: 11400000, guid: b6001f25c8706554b901f57dff746d06, type: 2}
-  barrelTip: {x: -0.0632, y: 0.035, z: 0}
+  barrelTip: {fileID: 1989888233704617499}
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}

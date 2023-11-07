@@ -15,6 +15,8 @@ public class PlayerShootController : MonoBehaviour
 
     public Weapon mainWeapon;
 
+    [SerializeField]
+    private GameObject orientation;
     //public Weapon MainWeapon
     //{
     //    get { return mainWeapon; }
@@ -23,9 +25,6 @@ public class PlayerShootController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -38,9 +37,11 @@ public class PlayerShootController : MonoBehaviour
         {
             if (mainWeapon != null)
             {
-                Debug.Log("mainWeaponNotNull");
-                mainWeapon.Shoot();
-                onShootEvents.Invoke(mainWeapon.CurrentBullets, mainWeapon.MaxBullets, mainWeapon.BarrelTip);
+                if (mainWeapon.Shoot())
+                {
+                    onShootEvents.Invoke(mainWeapon.CurrentBullets, mainWeapon.MaxBullets, mainWeapon.BarrelTip);
+                }
+                
             }
         }
 

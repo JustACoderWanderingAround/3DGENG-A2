@@ -35,7 +35,7 @@ public abstract class Weapon : MonoBehaviour
         set { currentBullets = value; }  // set method
     }
 
-    public abstract void Shoot();
+    public abstract bool Shoot();
     
     public virtual void Reload()
     {
