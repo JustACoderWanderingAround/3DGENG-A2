@@ -39,7 +39,7 @@ public class PlayerShootController : MonoBehaviour
             {
                 if (mainWeapon.Shoot())
                 {
-                    onShootEvents.Invoke(mainWeapon.CurrentBullets, mainWeapon.MaxBullets, mainWeapon.BarrelTip);
+                    onShootEvents.Invoke(mainWeapon.currentBullets, mainWeapon.maxBullets, mainWeapon.BarrelTip);
                 }
                 
             }

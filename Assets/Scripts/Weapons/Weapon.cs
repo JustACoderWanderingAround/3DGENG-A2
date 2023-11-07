@@ -20,20 +20,20 @@ public abstract class Weapon : MonoBehaviour
         get { return barrelTip; }
     }
 
-    protected int maxBullets;
-    protected int currentBullets;
+    public int maxBullets;
+    public int currentBullets;
+    public int magNum;
+    //public int MaxBullets   // property
+    //{
+    //    get { return maxBullets; }   // get method
+    //    set { maxBullets = value; }  // set method
+    //}
 
-    public int MaxBullets   // property
-    {
-        get { return maxBullets; }   // get method
-        set { maxBullets = value; }  // set method
-    }
-
-    public int CurrentBullets   // property
-    {
-        get { return currentBullets; }   // get method
-        set { currentBullets = value; }  // set method
-    }
+    //public int CurrentBullets   // property
+    //{
+    //    get { return currentBullets; }   // get method
+    //    set { currentBullets = value; }  // set method
+    //}
 
     public abstract bool Shoot();
     
