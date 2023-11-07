@@ -131,5 +131,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5490662395887126578, guid: 20724fc406c067744a315db717b79a6f, type: 3}
   gunName: AK-47
   shootConfig: {fileID: 11400000, guid: b6001f25c8706554b901f57dff746d06, type: 2}
+  maxBullets: 30
+  currentBullets: 30
+  magNum: 4
   barrelTip: {fileID: 1989888233704617499}
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}

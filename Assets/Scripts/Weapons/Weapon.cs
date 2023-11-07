@@ -7,39 +7,52 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     protected GameObject bulletPrefab;
 
-    //public List<Bullet> ammoTypes;
-
     public string gunName;
 
     public ShootConfigScriptableObject shootConfig;
 
-
-    protected Vector3 barrelTip;
-    public Vector3 BarrelTip
+    /// <summary>
+    /// The transform where bullets spawn
+    /// </summary>
+    protected GameObject barrelTip;
+    public GameObject BarrelTip
     {
         get { return barrelTip; }
     }
 
+    /// <summary>
+    /// maxBullets: number of bullets each mag can hold
+    /// currentBullets: number of bullets in the current mag
+    /// magNum: number of mags
+    /// leftoverBullets: any bullets left over from reloads with mags not empty
+    /// </summary>
     public int maxBullets;
     public int currentBullets;
     public int magNum;
-    //public int MaxBullets   // property
-    //{
-    //    get { return maxBullets; }   // get method
-    //    set { maxBullets = value; }  // set method
-    //}
-
-    //public int CurrentBullets   // property
-    //{
-    //    get { return currentBullets; }   // get method
-    //    set { currentBullets = value; }  // set method
-    //}
+    [HideInInspector]
+    public int leftoverBullets = 0;
 
     public abstract bool Shoot();
     
     public virtual void Reload()
     {
-        currentBullets = maxBullets;
+
+        if (magNum >= 1)
+        {
+            magNum -= 1;
+            leftoverBullets += currentBullets;
+            currentBullets = maxBullets;
+            if (leftoverBullets > 30)
+            {
+                magNum += 1;
+                leftoverBullets -= 30;
+            }
+        }
+        else if (leftoverBullets > 0)
+        {
+            currentBullets = leftoverBullets;
+            leftoverBullets = 0;
+        }
         // TODO: To be overriden with more functionalities
     }
 }

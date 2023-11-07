@@ -14,17 +14,18 @@ public class Gun : Weapon
         currentBullets = maxBullets;
         shootTimer = 0;
         maxShootTimer = 60 / shootConfig.fireRate;
-
     }
     private void Update()
     {
         if (shootTimer > -1)
             shootTimer -= Time.deltaTime;
+
     }
     public override bool Shoot()
     {
-        if (shootTimer < 0)
+        if (shootTimer < 0 && currentBullets > 0)
         {
+            currentBullets -= 1;
             shootTimer = maxShootTimer;
             GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.identity);
             newBullet.GetComponent<Bullet>().Init(transform.parent.transform.forward, currBullet.BulletVelocity);
@@ -33,5 +34,11 @@ public class Gun : Weapon
         else
             return false;
 
+    }
+    public override void Reload()
+    {
+       
+        base.Reload();
+        
     }
 }

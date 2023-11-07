@@ -14,8 +14,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // TODO: subscribe the managers to the shoot controller
-        controller.Subscribe(audioManager.PlayShootSound);
-        controller.Subscribe(ui.UpdateUI);
-        controller.Subscribe(effects.SpawnShootEffect);
+        controller.SubscribeToShootEvent(audioManager.PlayShootSound);
+        controller.SubscribeToShootEvent(ui.UpdateUI);
+        controller.SubscribeToShootEvent(effects.SpawnShootEffect);
+        controller.SubscribeToReloadEvent(ui.UpdateUI);
     }
 }

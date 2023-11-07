@@ -15,10 +15,14 @@ public class AudioManager : MonoBehaviour//, IShootObserver
         audioSource.loop = false;
     }
 
-    public void PlayShootSound(int unused1, int unused2, Vector3 unused3)
+    public void PlayShootSound(Weapon mainWeapon)
     {
         // TODO: Play respective audio clip
         Debug.Log("Sound played");
         audioSource.Play();
+    }
+    public void PlayReloadSound(Weapon mainWeapon)
+    {
+
     }
 }
