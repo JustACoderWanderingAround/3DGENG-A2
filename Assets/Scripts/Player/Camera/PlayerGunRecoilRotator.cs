@@ -30,6 +30,6 @@ public class PlayerGunRecoilRotator : MonoBehaviour
     
     public void RecoilFire()
     {
-        targetRotation += new Vector3(mainWeapon.recoilX, Random.Range(-mainWeapon.recoilY, mainWeapon.recoilY), Random.Range(-mainWeapon.recoilZ, mainWeapon.recoilZ));
+        targetRotation += new Vector3(-mainWeapon.recoilX, Random.Range(-mainWeapon.recoilY, mainWeapon.recoilY), Random.Range(-mainWeapon.recoilZ, mainWeapon.recoilZ));
     }
 }
