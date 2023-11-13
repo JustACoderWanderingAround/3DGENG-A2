@@ -13,6 +13,8 @@ public class PlayerShootController : MonoBehaviour
 
     public System.Action<Weapon> onReloadEvents;
 
+    public System.Action<Weapon> onSwapEvents;
+
     [SerializeField]
     private GameObject weaponSlot;
 
@@ -26,13 +28,17 @@ public class PlayerShootController : MonoBehaviour
     //    get { return mainWeapon; }
     //    set { value = mainWeapon; }
     //}
-    public Weapon mainWeapon;
+    /*public*/ Weapon mainWeapon;
 
     float triggerHoldTime = 0;
+
+    private int activeGunIndex = 0;
 
     private void OnEnable()
     {
         recoilRotator = recoilModifier.GetComponent<PlayerGunRecoilRotator>();
+        mainWeapon = weaponSlot.transform.GetChild(0).GetComponent<Weapon>();
+        weaponSlot.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     void Update()
@@ -66,6 +72,14 @@ public class PlayerShootController : MonoBehaviour
             onReloadEvents.Invoke(mainWeapon);
             Debug.Log("After currB: " + mainWeapon.currentBullets + " leftOverB: " + mainWeapon.leftoverBullets + " magNum: " + mainWeapon.magNum);
         }
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            SwapWeapon(0);
+        } 
+        else if (Input.GetKey(KeyCode.Alpha2))
+        {
+            SwapWeapon(1);
+        }
 
     }
     public void SubscribeToShootEvent (System.Action<Weapon, float> onShootEvent)
@@ -76,5 +90,18 @@ public class PlayerShootController : MonoBehaviour
     public void SubscribeToReloadEvent(System.Action<Weapon> onReloadEvent)
     {
         onReloadEvents += onReloadEvent;
+    }
+
+    public void SubscribeToWeaponSwapEvent(System.Action<Weapon> onSwapEvent)
+    {
+        onSwapEvents += onSwapEvent;
+    }
+    public void SwapWeapon(int index)
+    {
+        weaponSlot.transform.GetChild(activeGunIndex).gameObject.SetActive(false);
+        activeGunIndex = index;
+        weaponSlot.transform.GetChild(activeGunIndex).gameObject.SetActive(true);
+        mainWeapon = weaponSlot.transform.GetChild(activeGunIndex).GetComponent<Weapon>();
+
     }
 }

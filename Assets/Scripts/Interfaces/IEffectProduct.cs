@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-public interface IShakeBehaviour 
+
+public class IEffectProduct : MonoBehaviour
 {
-    public void Shake();
+
 }

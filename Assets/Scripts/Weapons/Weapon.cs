@@ -35,6 +35,10 @@ public abstract class Weapon : MonoBehaviour
 
     public float snappiness;
     public float returnSpeed;
+
+
+    public AudioClip gunshotAudio;
+
     public abstract string GetClassName();
     public abstract bool Shoot();
     

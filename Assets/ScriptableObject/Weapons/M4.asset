@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14bec71579153204f8819fc83f0d65b3, type: 3}
-  m_Name: AK47
+  m_Name: M4
   m_EditorClassIdentifier: 
   isHitscan: 1
-  fireRate: 600
-  maxSpreadTime: 5
-  maxRecoilOffset: {x: 4, y: 4}
-  cameraShakeStrength: {x: 3, y: 0, z: 3}
-  damage: 35
+  fireRate: 750
+  maxSpreadTime: 0
+  maxRecoilOffset: {x: 2.5, y: 2.5}
+  cameraShakeStrength: {x: 0, y: 0, z: 0}
+  damage: 25

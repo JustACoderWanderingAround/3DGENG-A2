@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EffectsManager : MonoBehaviour
 {
-
+    [SerializeField]
+    private List<EffectsFactory> effectsFactories;
     public void SpawnShootEffect(Weapon mainWeapon, float unused)
     {
-        // TODO: Spawn shoot effect
-        Debug.Log("Shot effect spawned");
-
+        
+        IEffectProduct newEffect = effectsFactories[0].GetProduct(mainWeapon.barrelTip.transform.position, 0);
+        Destroy(newEffect.gameObject, 0.1f);
+        
     }
 }

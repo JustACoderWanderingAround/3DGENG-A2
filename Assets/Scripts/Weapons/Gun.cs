@@ -6,9 +6,9 @@ public class Gun : Weapon
 {
     public BulletConfigurationScriptableObject currBullet;
 
-
-
     float shootTimer, maxShootTimer, triggerHoldTimer;
+
+
     public override string GetClassName()
     {
         return "Gun";

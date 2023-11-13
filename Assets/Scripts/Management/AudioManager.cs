@@ -19,6 +19,8 @@ public class AudioManager : MonoBehaviour//, IShootObserver
     {
         // TODO: Play respective audio clip
         Debug.Log("Sound played");
+        if (audioSource.clip != mainWeapon.gunshotAudio)
+            audioSource.clip = mainWeapon.gunshotAudio;
         audioSource.Play();
     }
     public void PlayReloadSound(Weapon mainWeapon)

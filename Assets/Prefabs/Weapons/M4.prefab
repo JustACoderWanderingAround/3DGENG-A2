@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1989888233704617499
+--- !u!1 &5452590600800980062
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,80 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2561480203020672122}
+  - component: {fileID: 5452590600801472638}
+  - component: {fileID: 5452590600800145502}
+  - component: {fileID: 5452590600799048350}
+  - component: {fileID: 6066219113620611356}
+  - component: {fileID: 9119647047379042623}
   m_Layer: 0
-  m_Name: BarrelTip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2561480203020672122
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989888233704617499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.619, y: 0.033, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7235651288511716653}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7235651288511349005
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7235651288511716653}
-  - component: {fileID: 7235651288512519437}
-  - component: {fileID: 7235651288513617869}
-  - component: {fileID: 284146216861827057}
-  - component: {fileID: 1856595983}
-  m_Layer: 0
-  m_Name: AK-47
+  m_Name: M4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &7235651288511716653
+--- !u!4 &5452590600801472638
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235651288511349005}
+  m_GameObject: {fileID: 5452590600800980062}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2561480203020672122}
+  - {fileID: 2353306661877870302}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!33 &7235651288512519437
+--- !u!33 &5452590600800145502
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235651288511349005}
-  m_Mesh: {fileID: 4300000, guid: 7d0124d3bdb8cba4f834aae3a9962ddc, type: 3}
---- !u!23 &7235651288513617869
+  m_GameObject: {fileID: 5452590600800980062}
+  m_Mesh: {fileID: 4300000, guid: fb98406df768fd347a74f32a4a7504cf, type: 3}
+--- !u!23 &5452590600799048350
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235651288511349005}
+  m_GameObject: {fileID: 5452590600800980062}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -95,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 484464b8ff3440e40bae6737848b8e21, type: 2}
+  - {fileID: 2100000, guid: bcfb2b969dcb613498b4bb959cfb99e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,44 +86,75 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &284146216861827057
+--- !u!114 &6066219113620611356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235651288511349005}
+  m_GameObject: {fileID: 5452590600800980062}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0be9ecfb1662544ab766b7e8e104990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5490662395887126578, guid: 20724fc406c067744a315db717b79a6f, type: 3}
-  gunName: AK-47
-  shootConfig: {fileID: 11400000, guid: b6001f25c8706554b901f57dff746d06, type: 2}
-  barrelTip: {fileID: 1989888233704617499}
+  gunName: M4A1
+  shootConfig: {fileID: 11400000, guid: 7ff73e569697b024cab681e02ffd08fa, type: 2}
+  barrelTip: {fileID: 7079147363786450982}
   maxBullets: 30
-  currentBullets: 30
-  magNum: 4
+  currentBullets: 0
+  magNum: 5
   leftoverBullets: 0
-  recoilX: 8
-  recoilY: 5
-  recoilZ: 4
-  snappiness: 4
-  returnSpeed: 4
-  gunshotAudio: {fileID: 8300000, guid: 5ebe7cc7dacb13f468bf6e38ac6ee7c4, type: 3}
+  recoilX: 5
+  recoilY: 2.5
+  recoilZ: 2
+  snappiness: 5
+  returnSpeed: 5
+  gunshotAudio: {fileID: 8300000, guid: dfebf0dc1c471d246b501b162f7a68d1, type: 3}
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}
---- !u!64 &1856595983
+--- !u!64 &9119647047379042623
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235651288511349005}
+  m_GameObject: {fileID: 5452590600800980062}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 7d0124d3bdb8cba4f834aae3a9962ddc, type: 3}
+  m_Mesh: {fileID: 4300000, guid: fb98406df768fd347a74f32a4a7504cf, type: 3}
+--- !u!1 &7079147363786450982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2353306661877870302}
+  m_Layer: 0
+  m_Name: BarrelTip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2353306661877870302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079147363786450982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5723, y: 0.0483, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5452590600801472638}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

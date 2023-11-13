@@ -13,7 +13,12 @@ public class ShootConfigScriptableObject : ScriptableObject
 
     public float maxSpreadTime;
 
-    public Vector3 barrelTip;
+    public Vector2 maxRecoilOffset;
+
+    public Vector3 cameraShakeStrength;
+
+    public int damage;
+
     ///
     /// This enum determines how the recoil reacts - will it go straight up? straight down?
     /// left and right? 
@@ -30,8 +35,7 @@ public class ShootConfigScriptableObject : ScriptableObject
     //public BehaviourType vertRecoilBehaviour;
 
     // Max offset from forward when firing
-    public Vector2 maxRecoilOffset;
-    public Vector3 cameraShakeStrength;
+
 
     /// <summary>
     /// All offsets from the forward direction are a function of time.

@@ -4,8 +4,5 @@ using UnityEngine;
 
 
 public class PlayerCameraShaker : MonoBehaviour
-{
-    [SerializeField]
-    private List<IShakeBehaviour> shakeBehaviours;
-   
+{  
 }
