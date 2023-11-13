@@ -29,6 +29,12 @@ public abstract class Weapon : MonoBehaviour
     [HideInInspector]
     public int leftoverBullets = 0;
 
+    public float recoilX;
+    public float recoilY;
+    public float recoilZ;
+
+    public float snappiness;
+    public float returnSpeed;
     public abstract string GetClassName();
     public abstract bool Shoot();
     

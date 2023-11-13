@@ -16,10 +16,9 @@ public class PlayerShootController : MonoBehaviour
     [SerializeField]
     private GameObject weaponSlot;
 
-
-
     [SerializeField]
-    private GameObject orientation;
+    private GameObject recoilModifier;
+    private PlayerGunRecoilRotator recoilRotator;
 
     /// TODO: use this implementation of mainWeapon once player can swap weapons
     //public Weapon MainWeapon
@@ -31,12 +30,17 @@ public class PlayerShootController : MonoBehaviour
 
     float triggerHoldTime = 0;
 
+    private void OnEnable()
+    {
+        recoilRotator = recoilModifier.GetComponent<PlayerGunRecoilRotator>();
+    }
+
     void Update()
     {
-        //if (weaponSlot.transform.GetChild(0).gameObject.GetComponent<Weapon>())
-        //{
-        //    mainWeapon = weaponSlot.transform.GetChild(0).gameObject.GetComponent<Weapon>();
-        //}
+        if (recoilRotator.mainWeapon != mainWeapon)
+        {
+            recoilRotator.mainWeapon = mainWeapon;
+        }
         if (Input.GetAxisRaw("Fire1") > 0)
         {
             if (mainWeapon != null)
@@ -45,6 +49,7 @@ public class PlayerShootController : MonoBehaviour
                 {
                     triggerHoldTime += Time.deltaTime;
                     onShootEvents.Invoke(mainWeapon, triggerHoldTime);
+                    recoilRotator.RecoilFire();
                 }
                 
             }
