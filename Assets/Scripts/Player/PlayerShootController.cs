@@ -1,11 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class PlayerShootController : MonoBehaviour
 {
     // Events invoked when player shoots
-    private System.Action<Weapon> onShootEvents;
-    public System.Action<Weapon> OnShootEvents
+    private System.Action<Weapon, float> onShootEvents;
+    public System.Action<Weapon, float> OnShootEvents
     {
         get { return onShootEvents;  }
     }
@@ -28,6 +29,8 @@ public class PlayerShootController : MonoBehaviour
     //}
     public Weapon mainWeapon;
 
+    float triggerHoldTime = 0;
+
     void Update()
     {
         //if (weaponSlot.transform.GetChild(0).gameObject.GetComponent<Weapon>())
@@ -40,10 +43,15 @@ public class PlayerShootController : MonoBehaviour
             {
                 if (mainWeapon.Shoot())
                 {
-                    onShootEvents.Invoke(mainWeapon);
+                    triggerHoldTime += Time.deltaTime;
+                    onShootEvents.Invoke(mainWeapon, triggerHoldTime);
                 }
                 
             }
+        }
+        else
+        {
+            triggerHoldTime = 0;
         }
         //todo: replace with axisRaw to allow flexible use of keys
         if (Input.GetKeyDown(KeyCode.R) && mainWeapon.currentBullets < mainWeapon.maxBullets)
@@ -55,7 +63,7 @@ public class PlayerShootController : MonoBehaviour
         }
 
     }
-    public void SubscribeToShootEvent (System.Action<Weapon> onShootEvent)
+    public void SubscribeToShootEvent (System.Action<Weapon, float> onShootEvent)
     {
         onShootEvents += onShootEvent;
     }

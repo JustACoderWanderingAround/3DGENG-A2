@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public UIManager ui;
     public EffectsManager effects;
     public PlayerShootController controller;
+    public CameraManager camManager;
 
 
     // Start is called before the first frame update
@@ -18,5 +19,6 @@ public class GameManager : MonoBehaviour
         controller.SubscribeToShootEvent(ui.UpdateUI);
         controller.SubscribeToShootEvent(effects.SpawnShootEffect);
         controller.SubscribeToReloadEvent(ui.UpdateUI);
+        controller.SubscribeToShootEvent(camManager.OneShake);
     }
 }

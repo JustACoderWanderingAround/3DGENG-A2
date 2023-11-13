@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14bec71579153204f8819fc83f0d65b3, type: 3}
   m_Name: AK47
   m_EditorClassIdentifier: 
-  isHitscan: 0
+  isHitscan: 1
   fireRate: 600
   maxSpreadTime: 5
+  barrelTip: {x: 0, y: 0, z: 0}
   horiRecoilBehaviour: 0
   vertRecoilBehaviour: 0
-  maxRecoilOffset: {x: 1, y: 1, z: 0}
+  maxRecoilOffset: {x: 4, y: 4}
+  cameraShakeStrength: {x: 1, y: 0, z: 1}

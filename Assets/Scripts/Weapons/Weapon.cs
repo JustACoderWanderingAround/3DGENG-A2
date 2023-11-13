@@ -14,11 +14,8 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// The transform where bullets spawn
     /// </summary>
-    protected GameObject barrelTip;
-    public GameObject BarrelTip
-    {
-        get { return barrelTip; }
-    }
+    public GameObject barrelTip;
+    
 
     /// <summary>
     /// maxBullets: number of bullets each mag can hold
@@ -32,6 +29,7 @@ public abstract class Weapon : MonoBehaviour
     [HideInInspector]
     public int leftoverBullets = 0;
 
+    public abstract string GetClassName();
     public abstract bool Shoot();
     
     public virtual void Reload()

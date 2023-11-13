@@ -30,7 +30,8 @@ public class ShootConfigScriptableObject : ScriptableObject
     public BehaviourType vertRecoilBehaviour;
 
     // Max offset from forward when firing
-    public Vector3 maxRecoilOffset = Vector3.zero;
+    public Vector2 maxRecoilOffset;
+    public Vector3 cameraShakeStrength;
 
     /// <summary>
     /// All offsets from the forward direction are a function of time.
@@ -40,8 +41,7 @@ public class ShootConfigScriptableObject : ScriptableObject
     public Vector3 GenerateSpreadAtPoint(float shootTime)
     {
         Vector3 spread = Vector3.zero;
-        ///
-        /// TODO: IMPLEMENT INDIVIDUAL SPREAD OFFSET ON EACH AXIS
+
         /// psuedocode:
         /// for each axis:
         ///     if behaviourType is linear
@@ -51,8 +51,31 @@ public class ShootConfigScriptableObject : ScriptableObject
         ///         apply sine equation to result
         ///     else if behaviourType is quadratic
         ///         apply quadratic equation to result
-        ///         
-        ///
+        ///         -> SLERP         
+        switch (horiRecoilBehaviour) {
+            case BehaviourType.LINEAR:
+                spread.x = (Vector3.Lerp(Vector3.zero, cameraShakeStrength, Mathf.Clamp(shootTime / maxSpreadTime, 0f, 1f))).x;
+                break;
+            case BehaviourType.SINE:
+                spread.x = Mathf.Sin(shootTime * cameraShakeStrength.x);
+                break;
+            case BehaviourType.QUADRATIC:
+                spread.x = (Vector3.Slerp(Vector2.zero, cameraShakeStrength, Mathf.Clamp(shootTime / maxSpreadTime, 0f, 1f))).x;
+                break;
+        }
+        switch (vertRecoilBehaviour)
+        {
+            case BehaviourType.LINEAR:
+                spread.y = (Vector3.Lerp(Vector3.zero, cameraShakeStrength, Mathf.Clamp(shootTime / maxSpreadTime, 0f, 1f))).y;
+                break;
+            case BehaviourType.SINE:
+                spread.y = Mathf.Sin(shootTime * cameraShakeStrength.y);
+                break;
+            case BehaviourType.QUADRATIC:
+                spread.y = (Vector3.Slerp(Vector2.zero, cameraShakeStrength, Mathf.Clamp(shootTime / maxSpreadTime, 0f, 1f))).y;
+                break;
+        }
+
         return spread;
     }
 }

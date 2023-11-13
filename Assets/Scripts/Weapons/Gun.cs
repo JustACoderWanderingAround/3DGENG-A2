@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Gun : Weapon
 {
-    public new GameObject barrelTip;
     public BulletConfigurationScriptableObject currBullet;
 
-    float shootTimer, maxShootTimer;
+    float shootTimer, maxShootTimer, triggerHoldTimer;
+    public override string GetClassName()
+    {
+        return "Gun";
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,14 @@ public class Gun : Weapon
     {
         if (shootTimer > -1)
             shootTimer -= Time.deltaTime;
+        if (Input.GetAxisRaw("Fire1") > 0)
+        {
+            triggerHoldTimer += Time.deltaTime;
+        }
+        else
+        {
+            triggerHoldTimer = 0;
+        }
 
     }
     public override bool Shoot()
