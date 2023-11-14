@@ -16,5 +16,5 @@ MonoBehaviour:
   fireRate: 750
   maxSpreadTime: 0
   maxRecoilOffset: {x: 2.5, y: 2.5}
-  cameraShakeStrength: {x: 0, y: 0, z: 0}
+  cameraShakeStrength: {x: 0.5, y: 0.5, z: 0.5}
   damage: 25
