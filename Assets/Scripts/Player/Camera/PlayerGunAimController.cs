@@ -12,49 +12,53 @@ public class PlayerGunAimController : MonoBehaviour
     private Vector3 targetPosition;
 
     private Vector3 hipPosition = new Vector3(0.5f, -0.16f, 0.34f);
-    private Vector3 aimPosition = new Vector3(0f, -0.16f, 0.34f);
-
     private Vector3 hipRotation = new Vector3(0, 0f, 0);
+
+    private Vector3 aimPosition = new Vector3(0f, -0.125f, 0.35f);
+    private Vector3 aimRotation = new Vector3(10f, 0f, 0f);
+
+    public bool debugOnly;
+
+    public Weapon mainWeapon;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Fire2") > 0)
+        if (mainWeapon.aimPosVector != aimPosition)
         {
-            //transform.localPosition = aimPosition;
-            //transform.localRotation = Quaternion.identity;
+            aimPosition = mainWeapon.aimPosVector;
+        }
+        if (mainWeapon.aimRotVector != aimRotation)
+        {
+            aimRotation = mainWeapon.aimRotVector;
+        }
+        if (Input.GetAxisRaw("Fire2") > 0 || debugOnly)
+        {
             targetPosition = aimPosition;
-            targetRotation = hipRotation;
-
+            targetRotation = aimRotation;
         }
         else
         {
-            //transform.localPosition = hipPosition;
-            //Quaternion newQuat = Quaternion.Euler(0, hipRotation.y, 0);
-            //transform.localRotation = newQuat;
             targetPosition = hipPosition;
-            targetRotation = new Vector3(0, 0, 0);
-            //Quaternion newQuat = Quaternion.Euler(0, hipRotation.y, 0);
-            //targetRotation = newQuat;
+            targetRotation = hipRotation;
         }
-        //transform.localPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime);
-        //transform.localRotation = Quaternion.Lerp(currentRotation, targetRotation, Time.deltaTime);
-
         
     }
     private void FixedUpdate()
     {
-        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, Time.fixedDeltaTime);
-        currentRotation = Vector3.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime);
-        transform.localRotation = Quaternion.Euler(currentRotation);
+        if (mainWeapon != null)
+        {
+            targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+            currentRotation = Vector3.Slerp(currentRotation, targetRotation, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+            transform.localRotation = Quaternion.Euler(currentRotation);
 
-        targetPosition = Vector3.Lerp(targetPosition, Vector3.zero, Time.fixedDeltaTime);
-        currentPosition = Vector3.Slerp(currentPosition, targetPosition, Time.fixedDeltaTime);
-        transform.localPosition = currentPosition;
+            targetPosition = Vector3.Lerp(targetPosition, Vector3.zero, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+            currentPosition = Vector3.Slerp(currentPosition, targetPosition, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+            transform.localPosition = currentPosition;
+        }
     }
 }

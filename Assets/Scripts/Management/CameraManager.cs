@@ -27,6 +27,7 @@ public class CameraManager : MonoBehaviour
     public void OneShake(Weapon mainWeapon, float unused)
     {
         StartCoroutine(PerformComplexShake(0.1f, mainWeapon));
+        transform.localRotation = Quaternion.identity;
     }
     public void OneShake()
     {

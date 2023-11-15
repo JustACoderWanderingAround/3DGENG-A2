@@ -21,6 +21,8 @@ public class PlayerShootController : MonoBehaviour
     [SerializeField]
     private GameObject recoilModifier;
     private PlayerGunRecoilRotator recoilRotator;
+    [SerializeField]
+    private PlayerGunAimController aimController;
 
     /// TODO: use this implementation of mainWeapon once player can swap weapons
     //public Weapon MainWeapon
@@ -46,6 +48,10 @@ public class PlayerShootController : MonoBehaviour
         if (recoilRotator.mainWeapon != mainWeapon)
         {
             recoilRotator.mainWeapon = mainWeapon;
+        }
+        if (aimController.mainWeapon != mainWeapon)
+        {
+            aimController.mainWeapon = mainWeapon;
         }
         if (Input.GetAxisRaw("Fire1") > 0)
         {
