@@ -23,11 +23,17 @@ public class PlayerGunRecoilRotator : MonoBehaviour
 
     private void Update()
     {
-        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, mainWeapon.returnSpeed * Time.deltaTime);
-        currentRotation = Vector3.Slerp(currentRotation, targetRotation, mainWeapon.snappiness * Time.fixedDeltaTime);
-        transform.localRotation = Quaternion.Euler(currentRotation);
+        
     }
-    
+    private void FixedUpdate()
+    {
+        if (mainWeapon != null)
+        {
+            targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, mainWeapon.returnSpeed * Time.fixedDeltaTime);
+            currentRotation = Vector3.Slerp(currentRotation, targetRotation, mainWeapon.snappiness * Time.fixedDeltaTime);
+            transform.localRotation = Quaternion.Euler(currentRotation);
+        }
+    }
     public void RecoilFire()
     {
         targetRotation += new Vector3(-mainWeapon.recoilX, Random.Range(-mainWeapon.recoilY, mainWeapon.recoilY), Random.Range(-mainWeapon.recoilZ, mainWeapon.recoilZ));

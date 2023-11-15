@@ -45,11 +45,15 @@ public class PlayerGunAimController : MonoBehaviour
         //transform.localPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime);
         //transform.localRotation = Quaternion.Lerp(currentRotation, targetRotation, Time.deltaTime);
 
-        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, Time.deltaTime);
+        
+    }
+    private void FixedUpdate()
+    {
+        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, Time.fixedDeltaTime);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime);
         transform.localRotation = Quaternion.Euler(currentRotation);
 
-        targetPosition = Vector3.Lerp(targetPosition, Vector3.zero,  Time.deltaTime);
+        targetPosition = Vector3.Lerp(targetPosition, Vector3.zero, Time.fixedDeltaTime);
         currentPosition = Vector3.Slerp(currentPosition, targetPosition, Time.fixedDeltaTime);
         transform.localPosition = currentPosition;
     }
