@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5490662395887126578, guid: 20724fc406c067744a315db717b79a6f, type: 3}
-  gunName: M4A1
+  gunName: M16
   shootConfig: {fileID: 11400000, guid: 7ff73e569697b024cab681e02ffd08fa, type: 2}
   barrelTip: {fileID: 4502593932561717050}
   maxBullets: 30
@@ -438,7 +438,7 @@ MonoBehaviour:
   snappiness: 5
   returnSpeed: 5
   adsSpeed: 2.8
-  aimRotVector: {x: 0, y: 0, z: 0}
-  aimPosVector: {x: 0, y: -0.125, z: 0.35}
+  aimRotVector: {x: 0.19, y: 0, z: -0.4}
+  aimPosVector: {x: 0, y: -0.09, z: 0.27}
   gunshotAudio: {fileID: 8300000, guid: dfebf0dc1c471d246b501b162f7a68d1, type: 3}
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}

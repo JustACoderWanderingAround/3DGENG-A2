@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 7235651288512519437}
   - component: {fileID: 7235651288513617869}
   - component: {fileID: 284146216861827057}
-  - component: {fileID: 1856595983}
   m_Layer: 0
   m_Name: AK-47
   m_TagString: Untagged
@@ -142,19 +141,8 @@ MonoBehaviour:
   recoilZ: 4
   snappiness: 4
   returnSpeed: 4
+  adsSpeed: 2.5
+  aimRotVector: {x: 1, y: 0, z: 0}
+  aimPosVector: {x: 0, y: -0.07, z: 0.1}
   gunshotAudio: {fileID: 8300000, guid: 5ebe7cc7dacb13f468bf6e38ac6ee7c4, type: 3}
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}
---- !u!64 &1856595983
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235651288511349005}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 7d0124d3bdb8cba4f834aae3a9962ddc, type: 3}

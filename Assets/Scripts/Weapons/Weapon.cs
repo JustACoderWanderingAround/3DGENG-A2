@@ -29,9 +29,9 @@ public abstract class Weapon : MonoBehaviour
     [HideInInspector]
     public int leftoverBullets = 0;
 
-    public float recoilX;
-    public float recoilY;
-    public float recoilZ;
+    public Vector3 recoil = new Vector3(1, 1, 1);
+
+    public Vector3 adsRecoilModifier = new Vector3(0.8f, 0.8f, 0.8f);
 
     public float snappiness;
     public float returnSpeed;

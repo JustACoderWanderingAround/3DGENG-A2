@@ -1127,44 +1127,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1596546693}
     m_Modifications:
     - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: adsSpeed
-      value: 2.5
+      propertyPath: recoil.x
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: aimVector.y
-      value: -0.125
+      propertyPath: recoil.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: aimVector.z
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: shootConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: b6001f25c8706554b901f57dff746d06, type: 2}
-    - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: aimPosVector.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: aimPosVector.y
-      value: -0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: aimPosVector.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: aimRotVector.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: aimRotVector.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
-      propertyPath: aimRotVector.z
-      value: 0
+      propertyPath: recoil.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7235651288511349005, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
       propertyPath: m_Name
@@ -1214,8 +1186,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1856595983, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
 --- !u!1 &1055969898
 GameObject:
@@ -1907,24 +1878,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1596546693}
     m_Modifications:
     - target: {fileID: 4176124458510183591, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
-      propertyPath: aimPosVector.y
-      value: -0.09
+      propertyPath: recoil.x
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4176124458510183591, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
-      propertyPath: aimPosVector.z
-      value: 0.27
+      propertyPath: recoil.y
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 4176124458510183591, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
-      propertyPath: aimRotVector.x
-      value: 0.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4176124458510183591, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
-      propertyPath: aimRotVector.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4176124458510183591, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
-      propertyPath: aimRotVector.z
-      value: -0.4
+      propertyPath: recoil.z
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8606599111823658465, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
       propertyPath: m_RootOrder
