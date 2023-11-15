@@ -14,7 +14,7 @@ public class PlayerGunAimController : MonoBehaviour
     private Vector3 hipPosition = new Vector3(0.5f, -0.16f, 0.34f);
     private Vector3 aimPosition = new Vector3(0f, -0.16f, 0.34f);
 
-    private Vector3 hipRotation = new Vector3(0, 5.66f, 0);
+    private Vector3 hipRotation = new Vector3(0, 0f, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +48,7 @@ public class PlayerGunAimController : MonoBehaviour
         targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, Time.deltaTime);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime);
         transform.localRotation = Quaternion.Euler(currentRotation);
+
         targetPosition = Vector3.Lerp(targetPosition, Vector3.zero,  Time.deltaTime);
         currentPosition = Vector3.Slerp(currentPosition, targetPosition, Time.fixedDeltaTime);
         transform.localPosition = currentPosition;
