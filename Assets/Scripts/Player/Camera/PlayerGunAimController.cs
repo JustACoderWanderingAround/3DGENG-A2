@@ -6,7 +6,7 @@ public class PlayerGunAimController : MonoBehaviour
 {
 
     private Vector3 currentRotation;
-    private Quaternion targetRotation;
+    private Vector3 targetRotation;
 
     private Vector3 currentPosition;
     private Vector3 targetPosition;
@@ -26,22 +26,30 @@ public class PlayerGunAimController : MonoBehaviour
     {
         if (Input.GetAxisRaw("Fire2") > 0)
         {
-            transform.localPosition = aimPosition;
-            transform.localRotation = Quaternion.identity;
-            //targetPosition = aimPosition;
-            //targetRotation = Quaternion.identity;
+            //transform.localPosition = aimPosition;
+            //transform.localRotation = Quaternion.identity;
+            targetPosition = aimPosition;
+            targetRotation = hipRotation;
 
         }
         else
         {
-            transform.localPosition = hipPosition;
-            Quaternion newQuat = Quaternion.Euler(0, hipRotation.y, 0);
-            transform.localRotation = newQuat;
-            //targetPosition = hipPosition;
+            //transform.localPosition = hipPosition;
+            //Quaternion newQuat = Quaternion.Euler(0, hipRotation.y, 0);
+            //transform.localRotation = newQuat;
+            targetPosition = hipPosition;
+            targetRotation = new Vector3(0, 0, 0);
             //Quaternion newQuat = Quaternion.Euler(0, hipRotation.y, 0);
             //targetRotation = newQuat;
         }
         //transform.localPosition = Vector3.Lerp(currentPosition, targetPosition, Time.deltaTime);
         //transform.localRotation = Quaternion.Lerp(currentRotation, targetRotation, Time.deltaTime);
+
+        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, Time.deltaTime);
+        currentRotation = Vector3.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime);
+        transform.localRotation = Quaternion.Euler(currentRotation);
+        targetPosition = Vector3.Lerp(targetPosition, Vector3.zero,  Time.deltaTime);
+        currentPosition = Vector3.Slerp(currentPosition, targetPosition, Time.fixedDeltaTime);
+        transform.localPosition = currentPosition;
     }
 }

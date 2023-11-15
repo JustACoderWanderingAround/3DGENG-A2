@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7460a2bfae3b40840a320dc9f381de2c, type: 3}
   m_Name: DEFAULT AMMO
   m_EditorClassIdentifier: 
-  bulletVelocity: 50
+  bulletVelocity: 10
   recoilMultipler: 1
