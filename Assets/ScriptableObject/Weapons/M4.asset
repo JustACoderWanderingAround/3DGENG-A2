@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHitscan: 1
   fireRate: 750
-  maxSpreadTime: 0
+  burstNum: 3
+  maxSpreadTime: 8
   maxRecoilOffset: {x: 2.5, y: 2.5}
   cameraShakeStrength: {x: 0.5, y: 0.5, z: 0.5}
   damage: 25
+  canAuto: 1
+  canBurst: 1

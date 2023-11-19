@@ -1127,6 +1127,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1596546693}
     m_Modifications:
     - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
+      propertyPath: fireMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 284146216861827057, guid: 6baf05367b17a8548a44a12e3da2299b, type: 3}
       propertyPath: recoil.x
       value: 5
       objectReference: {fileID: 0}
@@ -1877,6 +1881,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1596546693}
     m_Modifications:
+    - target: {fileID: 4176124458510183591, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
+      propertyPath: fireMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4176124458510183591, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
       propertyPath: recoil.x
       value: 3
