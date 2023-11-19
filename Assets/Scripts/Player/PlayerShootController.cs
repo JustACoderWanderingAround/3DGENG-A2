@@ -86,6 +86,10 @@ public class PlayerShootController : MonoBehaviour
         {
             SwapWeapon(1);
         }
+        else if (Input.GetKey(KeyCode.Alpha3))
+        {
+            SwapWeapon(2);
+        }
 
     }
     public void SubscribeToShootEvent (System.Action<Weapon, float> onShootEvent)
