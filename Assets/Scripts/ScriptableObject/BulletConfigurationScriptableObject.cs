@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Bullet Config", menuName = "Guns/Bullet Config", order = 3)]
+[CreateAssetMenu(fileName = "Bullet Config", menuName = "Weapons/Bullet Config", order = 3)]
 public class BulletConfigurationScriptableObject : ScriptableObject
 {
     [SerializeField]

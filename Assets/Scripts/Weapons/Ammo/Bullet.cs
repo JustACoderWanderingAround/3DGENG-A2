@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Vector3 direction;
-    private float velocity;
-    [SerializeField] private Rigidbody rb;
+    protected Vector3 direction;
+    protected float velocity;
+    [SerializeField] protected Rigidbody rb;
     [SerializeField]
-    private float maxLifeTime = 10f;
-    private float lifeTimer = 0;
+    protected float maxLifeTime = 10f;
+    protected float lifeTimer = 0;
+    [SerializeField]
+    protected GameObject collisionEffect;
 
     public void Init(Vector3 direction, float velocity)
     {
@@ -24,6 +26,12 @@ public class Bullet : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject instance = Instantiate(collisionEffect, transform.localPosition, transform.localRotation);
+        Destroy(instance, 1.5f);
+        Destroy(this);
     }
 
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7460a2bfae3b40840a320dc9f381de2c, type: 3}
-  m_Name: DEFAULT AMMO
+  m_Name: ROCKET DEFAULT AMMO
   m_EditorClassIdentifier: 
-  bulletVelocity: 30
-  recoilMultipler: 1
+  bulletVelocity: 1
+  recoilMultipler: 1.2

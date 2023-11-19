@@ -57,8 +57,11 @@ public class PlayerShootController : MonoBehaviour
         {
             if (mainWeapon != null)
             {
-                if (mainWeapon.Shoot())
+                bool mainWeaponShoot = mainWeapon.Shoot();
+                Debug.Log(mainWeaponShoot);
+                if (mainWeaponShoot)
                 {
+                    
                     triggerHoldTime += Time.deltaTime;
                     onShootEvents.Invoke(mainWeapon, triggerHoldTime);
                     recoilRotator.RecoilFire();

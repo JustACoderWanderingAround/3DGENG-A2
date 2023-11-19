@@ -100,7 +100,7 @@ public class Gun : Weapon
     {
         currentBullets -= 1;
         shootTimer = maxShootTimer;
-        GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, transform.rotation);
         newBullet.GetComponent<Bullet>().Init(transform.parent.transform.forward, currBullet.BulletVelocity);
     }
     //private void SwapFireMode() 

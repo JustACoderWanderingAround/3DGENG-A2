@@ -25,4 +25,8 @@ public class GuidedLauncher : Weapon
     {
         return false;
     }
+    void LockTarget()
+    {
+
+    }
 }
