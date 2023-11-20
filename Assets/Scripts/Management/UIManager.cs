@@ -14,6 +14,10 @@ public class UIManager : MonoBehaviour//, IShootObserver
     }
     public void UpdateUI(Weapon mainWeapon)
     {
+        if (mainWeapon == null)
+        {
+            ammoCounter.text = "No weapon!";
+        }
         // todo: update UI
         Debug.Log("UI Updated");
         ammoCounter.text = mainWeapon.currentBullets + " / " + ((mainWeapon.maxBullets * mainWeapon.magNum) + mainWeapon.leftoverBullets);
