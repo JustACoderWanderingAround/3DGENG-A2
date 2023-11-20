@@ -115,7 +115,7 @@ public class PlayerShootController : MonoBehaviour
     }
     public void SwapWeapon(int index)
     {
-        if (weaponSlot.transform.GetChild(index))
+        if (weaponSlot.transform.GetChild(index) != null)
         {
             if (weaponSlot.transform.childCount > 1)
             {

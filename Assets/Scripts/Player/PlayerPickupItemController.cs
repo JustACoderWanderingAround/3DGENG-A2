@@ -7,6 +7,8 @@ public class PlayerPickupItemController : MonoBehaviour
     [SerializeField]
     private GameObject playerHand;
     bool pickup;
+    [SerializeField]
+    private LayerMask itemLayermask;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +38,7 @@ public class PlayerPickupItemController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        var colliders = Physics.OverlapSphere(transform.position, 1.5f);
+        var colliders = Physics.OverlapSphere(transform.position, 5f, itemLayermask);
         foreach (var collider in colliders)
         {
             if (collider.gameObject.CompareTag("Item"))
