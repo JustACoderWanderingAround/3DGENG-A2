@@ -43,9 +43,11 @@ GameObject:
   - component: {fileID: 4882227241615790409}
   - component: {fileID: 4882227241614824329}
   - component: {fileID: 5515388070230270809}
+  - component: {fileID: 3001640640301390143}
+  - component: {fileID: 48833717168750336}
   m_Layer: 0
   m_Name: R870-Shotgun
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,19 +134,49 @@ MonoBehaviour:
   gunName: Remington 870
   shootConfig: {fileID: 11400000, guid: 11fdf00e9ea451546bc56ca44e0b0fea, type: 2}
   barrelTip: {fileID: 578829581999548724}
-  maxBullets: 0
+  maxBullets: 8
   currentBullets: 0
-  magNum: 0
+  magNum: 2
   leftoverBullets: 0
   recoil: {x: 1, y: 1, z: 1}
   adsRecoilModifier: {x: 0.8, y: 0.8, z: 0.8}
-  snappiness: 0
-  returnSpeed: 0
-  adsSpeed: 1
+  snappiness: 3
+  returnSpeed: 3
+  adsSpeed: 3
   aimRotVector: {x: 0, y: -0.125, z: 0.35}
   aimPosVector: {x: 0, y: -0.125, z: 0.35}
   gunshotAudio: {fileID: 8300000, guid: 418d36a4506293e4dbb34d1047fc8400, type: 3}
   fireMode: 0
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}
-  numShells: 3
+  numShells: 8
   maxShellDisplacement: {x: 5, y: 3}
+--- !u!64 &3001640640301390143
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4882227241612561737}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 621a34edc52ed564691a1e478641944a, type: 3}
+--- !u!54 &48833717168750336
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4882227241612561737}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -39,8 +39,11 @@ public class PlayerShootController : MonoBehaviour
     private void OnEnable()
     {
         recoilRotator = recoilModifier.GetComponent<PlayerGunRecoilRotator>();
-        mainWeapon = weaponSlot.transform.GetChild(0).GetComponent<Weapon>();
-        weaponSlot.transform.GetChild(0).gameObject.SetActive(true);
+        if (weaponSlot.transform.childCount > 0)
+        {
+            mainWeapon = weaponSlot.transform.GetChild(0).GetComponent<Weapon>();
+            weaponSlot.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     void Update()
@@ -111,10 +114,14 @@ public class PlayerShootController : MonoBehaviour
     }
     public void SwapWeapon(int index)
     {
-        weaponSlot.transform.GetChild(activeGunIndex).gameObject.SetActive(false);
-        activeGunIndex = index;
-        weaponSlot.transform.GetChild(activeGunIndex).gameObject.SetActive(true);
-        mainWeapon = weaponSlot.transform.GetChild(activeGunIndex).GetComponent<Weapon>();
+        if (weaponSlot.transform.GetChild(index))
+        {
+            weaponSlot.transform.GetChild(activeGunIndex).gameObject.SetActive(false);
+            activeGunIndex = index;
+            weaponSlot.transform.GetChild(activeGunIndex).gameObject.SetActive(true);
+            mainWeapon = weaponSlot.transform.GetChild(activeGunIndex).GetComponent<Weapon>();
+        }
+        else return;
 
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9119647047379042623}
   m_Layer: 0
   m_Name: M4
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,12 +106,15 @@ MonoBehaviour:
   currentBullets: 0
   magNum: 5
   leftoverBullets: 0
-  recoilX: 5
-  recoilY: 2.5
-  recoilZ: 2
+  recoil: {x: 1, y: 1, z: 1}
+  adsRecoilModifier: {x: 0.8, y: 0.8, z: 0.8}
   snappiness: 5
   returnSpeed: 5
+  adsSpeed: 1
+  aimRotVector: {x: 0, y: -0.125, z: 0.35}
+  aimPosVector: {x: 0, y: -0.125, z: 0.35}
   gunshotAudio: {fileID: 8300000, guid: dfebf0dc1c471d246b501b162f7a68d1, type: 3}
+  fireMode: 0
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}
 --- !u!64 &9119647047379042623
 MeshCollider:

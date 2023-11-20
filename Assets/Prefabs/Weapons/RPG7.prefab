@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &67572821912511100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997701174870366239}
+  m_Layer: 8
+  m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997701174870366239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67572821912511100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 207696717496229277}
+  - {fileID: 2919359058197836843}
+  - {fileID: 7715164701146255942}
+  - {fileID: 68357180482452325}
+  m_Father: {fileID: 2168954750530292570}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407249220846610192
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +46,7 @@ GameObject:
   - component: {fileID: 2919359058197836843}
   - component: {fileID: 6030482590881862367}
   - component: {fileID: 925448759480927175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RPG7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,12 +60,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407249220846610192}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.06450826, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.06450832, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2168954750530292570}
+  m_Father: {fileID: 997701174870366239}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6030482590881862367
@@ -94,7 +129,7 @@ GameObject:
   - component: {fileID: 207696717496229277}
   - component: {fileID: 6024036389492711601}
   - component: {fileID: 3139381458087507499}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,12 +143,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066993827935662979}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.000082062485, y: 0.051280946, z: 0.1249342}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.000082097016, y: 0.051280975, z: 0.12493414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2168954750530292570}
+  m_Father: {fileID: 997701174870366239}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6024036389492711601
@@ -175,9 +210,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2168954750530292570}
-  m_Layer: 0
+  - component: {fileID: 1086756726}
+  - component: {fileID: 7650826229703585715}
+  - component: {fileID: 1798355819586377641}
+  m_Layer: 8
   m_Name: RPG7
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,14 +232,70 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 207696717496229277}
-  - {fileID: 2919359058197836843}
-  - {fileID: 7715164701146255942}
-  - {fileID: 68357180482452325}
   - {fileID: 8999342554687520239}
+  - {fileID: 997701174870366239}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1086756726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536427269234446816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0be9ecfb1662544ab766b7e8e104990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5782927513047969931, guid: 0a256e2db72a63c4ab8517f23cb28b5d, type: 3}
+  gunName: RPG-7
+  shootConfig: {fileID: 11400000, guid: cee95f3325b4a864e9aa10d483f47910, type: 2}
+  barrelTip: {fileID: 3500032521215953602}
+  maxBullets: 1
+  currentBullets: 0
+  magNum: 5
+  leftoverBullets: 0
+  recoil: {x: 10, y: 10, z: 10}
+  adsRecoilModifier: {x: 0.1, y: 0.3, z: 0.5}
+  snappiness: 3
+  returnSpeed: 1
+  adsSpeed: 3
+  aimRotVector: {x: 0, y: 0, z: 0}
+  aimPosVector: {x: 0.0085, y: -0.1362, z: 0.03}
+  gunshotAudio: {fileID: 8300000, guid: 17d6e9fe5937afa4b9eae146005c4b09, type: 3}
+  fireMode: 0
+  currBullet: {fileID: 11400000, guid: d01fe358a6256f44e8aaae41aa050f5e, type: 2}
+--- !u!54 &7650826229703585715
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536427269234446816}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1798355819586377641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536427269234446816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.065, y: 0.13, z: 0.47}
+  m_Center: {x: 0, y: 0.085, z: 0}
 --- !u!1 &3433337110359279406
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +307,7 @@ GameObject:
   - component: {fileID: 68357180482452325}
   - component: {fileID: 477145839997598677}
   - component: {fileID: 1516367939797320958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sight_adjust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,12 +321,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3433337110359279406}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.008304088, y: 0.12888214, z: 0.07455104}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.008304083, y: 0.12888217, z: 0.074551076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2168954750530292570}
+  m_Father: {fileID: 997701174870366239}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &477145839997598677
@@ -294,7 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8999342554687520239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +408,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2168954750530292570}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8837697212552806637
 GameObject:
@@ -327,7 +421,7 @@ GameObject:
   - component: {fileID: 7715164701146255942}
   - component: {fileID: 5414129588060365885}
   - component: {fileID: 1449589195933523252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,12 +435,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8837697212552806637}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.008357646, y: 0.11707967, z: 0.076971404}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.008357554, y: 0.117079616, z: 0.07697135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2168954750530292570}
+  m_Father: {fileID: 997701174870366239}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5414129588060365885

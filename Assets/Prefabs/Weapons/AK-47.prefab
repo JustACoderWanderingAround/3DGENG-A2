@@ -43,13 +43,15 @@ GameObject:
   - component: {fileID: 7235651288512519437}
   - component: {fileID: 7235651288513617869}
   - component: {fileID: 284146216861827057}
+  - component: {fileID: -2615575387546414324}
+  - component: {fileID: 1472339967}
   m_Layer: 0
   m_Name: AK-47
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7235651288511716653
 Transform:
   m_ObjectHideFlags: 0
@@ -136,13 +138,43 @@ MonoBehaviour:
   currentBullets: 30
   magNum: 4
   leftoverBullets: 0
-  recoilX: 8
-  recoilY: 5
-  recoilZ: 4
+  recoil: {x: 5, y: 3, z: 3}
+  adsRecoilModifier: {x: 0.8, y: 0.8, z: 0.8}
   snappiness: 4
   returnSpeed: 4
   adsSpeed: 2.5
   aimRotVector: {x: 1, y: 0, z: 0}
   aimPosVector: {x: 0, y: -0.07, z: 0.1}
   gunshotAudio: {fileID: 8300000, guid: 5ebe7cc7dacb13f468bf6e38ac6ee7c4, type: 3}
+  fireMode: 1
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}
+--- !u!64 &-2615575387546414324
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235651288511349005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 7d0124d3bdb8cba4f834aae3a9962ddc, type: 3}
+--- !u!54 &1472339967
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235651288511349005}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

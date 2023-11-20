@@ -28,23 +28,26 @@ public class PlayerGunAimController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mainWeapon.aimPosVector != aimPosition)
+        if (mainWeapon != null)
         {
-            aimPosition = mainWeapon.aimPosVector;
-        }
-        if (mainWeapon.aimRotVector != aimRotation)
-        {
-            aimRotation = mainWeapon.aimRotVector;
-        }
-        if (Input.GetAxisRaw("Fire2") > 0 || debugOnly)
-        {
-            targetPosition = aimPosition;
-            targetRotation = aimRotation;
-        }
-        else
-        {
-            targetPosition = hipPosition;
-            targetRotation = hipRotation;
+            if (mainWeapon.aimPosVector != aimPosition)
+            {
+                aimPosition = mainWeapon.aimPosVector;
+            }
+            if (mainWeapon.aimRotVector != aimRotation)
+            {
+                aimRotation = mainWeapon.aimRotVector;
+            }
+            if (Input.GetAxisRaw("Fire2") > 0 || debugOnly)
+            {
+                targetPosition = aimPosition;
+                targetRotation = aimRotation;
+            }
+            else
+            {
+                targetPosition = hipPosition;
+                targetRotation = hipRotation;
+            }
         }
         
     }
