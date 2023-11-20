@@ -6,8 +6,6 @@ public class Rocket : Bullet
 {
     public float thrust = 5f;
     public float thrustTime = 2f;
-
-    Collider col;
     float thrustTimer;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +15,7 @@ public class Rocket : Bullet
         col = GetComponent<Collider>();
         col.enabled = false;
     }
-    public new void Init(Vector3 direction, float velocity)
+    public override void Init(Vector3 direction, float velocity)
     {
     }
     // Update is called once per frame

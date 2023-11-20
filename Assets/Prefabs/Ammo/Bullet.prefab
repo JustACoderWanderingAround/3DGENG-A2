@@ -129,4 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5490662395887126581}
   maxLifeTime: 3
-  collisionEffect: {fileID: 1892351807075712, guid: 44be68b4fc4366142a9cd1ae1f761ea4, type: 3}
+  collisionEffect: {fileID: 1025285306637258, guid: d8f0099df63275647a8bcf646df1ca00, type: 3}

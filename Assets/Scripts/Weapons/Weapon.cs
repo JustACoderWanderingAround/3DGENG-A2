@@ -67,5 +67,6 @@ public abstract class Weapon : MonoBehaviour
         }
         // TODO: To be overriden with more functionalities
     }
+
 }
 

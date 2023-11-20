@@ -14,12 +14,12 @@ public class Gun : Weapon
     public FireMode fireMode = FireMode.MODE_SEMIAUTO;
     public BulletConfigurationScriptableObject currBullet;
 
-    float shootTimer, maxShootTimer, triggerHoldTimer;
+    protected float shootTimer, maxShootTimer, triggerHoldTimer;
 
-    bool canShoot;
+    protected bool canShoot;
 
-    int roundCounter;
-    bool xKeyDown;
+    protected int roundCounter;
+    protected bool xKeyDown;
     public override string GetClassName()
     {
         return "Gun";
@@ -96,7 +96,7 @@ public class Gun : Weapon
         base.Reload();
 
     }
-    private void ShootBullet()
+    protected virtual void ShootBullet()
     {
         currentBullets -= 1;
         shootTimer = maxShootTimer;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3783393534040825476}
   - component: {fileID: 3914082834768780016}
   - component: {fileID: 3914204191926237184}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Embers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4812,7 +4812,7 @@ GameObject:
   - component: {fileID: 3791468046597142936}
   - component: {fileID: 3914042952782810194}
   - component: {fileID: 3915173534442573514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9636,7 +9636,7 @@ GameObject:
   - component: {fileID: 3783281436532069300}
   - component: {fileID: 3904172074821653876}
   - component: {fileID: 3914236559330347788}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Twinkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14527,7 +14527,7 @@ GameObject:
   - component: {fileID: 3791524817065327026}
   - component: {fileID: 3914050614965220052}
   - component: {fileID: 3914334653114437482}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Launch Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19409,7 +19409,7 @@ GameObject:
   - component: {fileID: 3783330407072830312}
   - component: {fileID: 3904078427823101808}
   - component: {fileID: 3914831030013812896}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24234,7 +24234,7 @@ GameObject:
   - component: {fileID: 3914011919465758532}
   - component: {fileID: 3914270934505658098}
   - component: {fileID: 6837136270475313992}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RocketTrail01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
