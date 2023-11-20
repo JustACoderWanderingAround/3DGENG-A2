@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2561480203020672122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 284146216861827057}
   - component: {fileID: -2615575387546414324}
   - component: {fileID: 1472339967}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AK-47
   m_TagString: Item
   m_Icon: {fileID: 0}

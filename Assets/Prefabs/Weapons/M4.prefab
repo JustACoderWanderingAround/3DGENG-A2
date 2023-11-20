@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5452590600799048350}
   - component: {fileID: 6066219113620611356}
   - component: {fileID: 9119647047379042623}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: M4
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2353306661877870302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4421585038159468730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5515388070230270809}
   - component: {fileID: 3001640640301390143}
   - component: {fileID: 48833717168750336}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: R870-Shotgun
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   fireMode: 0
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}
   numShells: 8
-  maxShellDisplacement: {x: 5, y: 3}
+  maxShellDisplacement: {x: 5, y: 3, z: 2}
 --- !u!64 &3001640640301390143
 MeshCollider:
   m_ObjectHideFlags: 0

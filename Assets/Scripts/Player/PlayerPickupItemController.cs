@@ -13,7 +13,7 @@ public class PlayerPickupItemController : MonoBehaviour
         for (int i = 0; i < playerHand.transform.childCount; ++i)
         {
             if (playerHand.transform.GetChild(i).GetComponent<Rigidbody>())
-                playerHand.transform.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
+                Destroy(playerHand.transform.GetChild(i).GetComponent<Rigidbody>());
             if (playerHand.transform.GetChild(i).GetComponent<Collider>())
                 playerHand.transform.GetChild(i).GetComponent<Collider>().enabled = false;
         }
@@ -52,26 +52,38 @@ public class PlayerPickupItemController : MonoBehaviour
     }
     void DropCurrentItem()
     {
-        Transform objectToDrop = playerHand.transform.GetChild(0);
-        objectToDrop.transform.parent = null;
-        if (objectToDrop.GetComponent<Rigidbody>())
-            objectToDrop.GetComponent<Rigidbody>().isKinematic = true;
-        if (objectToDrop.GetComponent<Collider>())
-            objectToDrop.GetComponent<Collider>().enabled = true;
+        Transform objectToDrop;
+        for (int i = 0; i < playerHand.transform.childCount; ++i)
+        {
+            if (playerHand.transform.GetChild(i).gameObject.activeInHierarchy)
+            {
+                objectToDrop = playerHand.transform.GetChild(i);
+                if (objectToDrop.GetComponent<Rigidbody>())
+                    objectToDrop.GetComponent<Rigidbody>().isKinematic = true;
+                else
+                {
+                    objectToDrop.gameObject.AddComponent<Rigidbody>();
+                }
+                if (objectToDrop.gameObject.GetComponent<Collider>())
+                    objectToDrop.gameObject.GetComponent<Collider>().enabled = true;
+                objectToDrop.transform.parent = null;
+                return;
+            }
+        }
+        return;
+       
     }
     void PickItemUp(GameObject itemToPick)
     {
         Debug.Log("Picking up " + itemToPick.name);
-        itemToPick.transform.position = Vector3.zero;
-        itemToPick.transform.rotation = Quaternion.identity;
         if (itemToPick.GetComponent<Rigidbody>())
         {
-            itemToPick.GetComponent<Rigidbody>().freezeRotation = true;
-            itemToPick.GetComponent<Rigidbody>().isKinematic = false;
+            Destroy(itemToPick.GetComponent<Rigidbody>());
         }
         // set transform to player's hand
         itemToPick.transform.parent = playerHand.transform;
-        
+        itemToPick.transform.localPosition = Vector3.zero;
+        itemToPick.transform.localRotation = Quaternion.identity;
 
     }
 }
