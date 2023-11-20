@@ -20,5 +20,6 @@ public class GameManager : MonoBehaviour
         controller.SubscribeToShootEvent(effects.SpawnShootEffect);
         controller.SubscribeToReloadEvent(ui.UpdateUI);
         controller.SubscribeToShootEvent(camManager.OneShake);
+        controller.SubscribeToWeaponSwapEvent(ui.UpdateUI);
     }
 }

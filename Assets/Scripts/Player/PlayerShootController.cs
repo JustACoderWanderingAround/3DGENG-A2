@@ -59,6 +59,7 @@ public class PlayerShootController : MonoBehaviour
         if (aimController.mainWeapon != mainWeapon)
         {
             aimController.mainWeapon = mainWeapon;
+            onReloadEvents.Invoke(mainWeapon);
         }
         if (Input.GetAxisRaw("Fire1") > 0)
         {
