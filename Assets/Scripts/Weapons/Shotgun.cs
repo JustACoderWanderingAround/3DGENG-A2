@@ -7,8 +7,8 @@ public class Shotgun : Gun
     [SerializeField]
     private int numShells = 3;
     [SerializeField]
-    private Vector2 maxShellDisplacement = new Vector2(5, 3);
-    private Vector2 maxShellDisplacementModifer = new Vector2(0.01f, 0.01f);
+    private Vector3 maxShellDisplacement = new Vector3(5, 3, 2);
+    private Vector3 maxShellDisplacementModifer = new Vector3(0.1f, 0.1f, 0.1f);
 
     void Start()
     {
@@ -29,12 +29,12 @@ public class Shotgun : Gun
         for (int i = 0; i < numShells; ++i)
         {
             Quaternion newBulletQuat = Quaternion.Euler(new Vector3(
-                transform.rotation.x + (Random.Range(-1 * maxShellDisplacement.x, maxShellDisplacement.x) * maxShellDisplacementModifer.x),
-                transform.rotation.y + (Random.Range(-1 * maxShellDisplacement.y, maxShellDisplacement.y) * maxShellDisplacementModifer.y),
-                0));
+                transform.parent.transform.forward.x + (Random.Range(-1 * maxShellDisplacement.x, maxShellDisplacement.x) * maxShellDisplacementModifer.x),
+                transform.parent.transform.forward.y + (Random.Range(-1 * maxShellDisplacement.y, maxShellDisplacement.y) * maxShellDisplacementModifer.y),
+                transform.parent.transform.forward.z + (Random.Range(-1 * maxShellDisplacement.z, maxShellDisplacement.z) * maxShellDisplacementModifer.z)));
           
-            GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, newBulletQuat);
-            newBullet.GetComponent<Bullet>().Init(transform.parent.transform.forward, currBullet.BulletVelocity);
+            GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.identity);
+            newBullet.GetComponent<Bullet>().Init(newBulletQuat.eulerAngles, currBullet.BulletVelocity);
         }
         currentBullets -= 1;
         shootTimer = maxShootTimer;

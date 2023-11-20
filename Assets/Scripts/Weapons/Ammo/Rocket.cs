@@ -46,6 +46,6 @@ public class Rocket : Bullet
         GameObject instance = Instantiate(collisionEffect, transform.localPosition, transform.localRotation);
         Destroy(instance, 1.5f);
 
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

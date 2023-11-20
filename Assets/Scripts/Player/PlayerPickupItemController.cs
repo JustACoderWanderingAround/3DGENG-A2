@@ -21,11 +21,11 @@ public class PlayerPickupItemController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             DropCurrentItem();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             pickup = true;
         }
@@ -64,8 +64,11 @@ public class PlayerPickupItemController : MonoBehaviour
         Debug.Log("Picking up " + itemToPick.name);
         itemToPick.transform.position = Vector3.zero;
         itemToPick.transform.rotation = Quaternion.identity;
-        //if (itemToPick.GetComponent<Rigidbody>())
-        //    itemToPick.GetComponent<Rigidbody>().isKinematic = false;
+        if (itemToPick.GetComponent<Rigidbody>())
+        {
+            itemToPick.GetComponent<Rigidbody>().freezeRotation = true;
+            itemToPick.GetComponent<Rigidbody>().isKinematic = false;
+        }
         // set transform to player's hand
         itemToPick.transform.parent = playerHand.transform;
         
