@@ -7,7 +7,7 @@ public class Shotgun : Gun
     [SerializeField]
     private int numShells = 3;
     [SerializeField]
-    private Vector3 maxShellDisplacement = new Vector3(5, 3, 2);
+    private Vector3 maxShellDisplacement = new Vector3(3, 3, 2);
     private Vector3 maxShellDisplacementModifer = new Vector3(0.1f, 0.1f, 0.1f);
 
     void Start()
@@ -32,7 +32,7 @@ public class Shotgun : Gun
                 transform.parent.transform.forward.x + (Random.Range(-1 * maxShellDisplacement.x, maxShellDisplacement.x) * maxShellDisplacementModifer.x),
                 transform.parent.transform.forward.y + (Random.Range(-1 * maxShellDisplacement.y, maxShellDisplacement.y) * maxShellDisplacementModifer.y),
                 transform.parent.transform.forward.z + (Random.Range(-1 * maxShellDisplacement.z, maxShellDisplacement.z) * maxShellDisplacementModifer.z)));
-          
+            Debug.Log("newbulletQuat: " + newBulletQuat.x + " " + newBulletQuat.y + " " + newBulletQuat.z);
             GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.identity);
             newBullet.GetComponent<Bullet>().Init(newBulletQuat.eulerAngles, currBullet.BulletVelocity);
         }

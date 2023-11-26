@@ -38,6 +38,8 @@ public class PlayerShootController : MonoBehaviour
 
     private void OnEnable()
     {
+        // set the game object which modifies camera recoil
+
         recoilRotator = recoilModifier.GetComponent<PlayerGunRecoilRotator>();
         if (weaponSlot.transform.childCount > 0)
         {
@@ -52,6 +54,7 @@ public class PlayerShootController : MonoBehaviour
 
     void Update()
     {
+        // check aim classes
         if (recoilRotator.mainWeapon != mainWeapon)
         {
             recoilRotator.mainWeapon = mainWeapon;
@@ -61,6 +64,12 @@ public class PlayerShootController : MonoBehaviour
             aimController.mainWeapon = mainWeapon;
             onReloadEvents.Invoke(mainWeapon);
         }
+        // on set aim toggling
+        
+        recoilRotator.SetIsAiming(Input.GetAxisRaw("Fire2") > 0);
+        aimController.SetIsAiming(Input.GetAxisRaw("Fire2") > 0);
+
+        // on fire events
         if (Input.GetAxisRaw("Fire1") > 0)
         {
             if (mainWeapon != null)

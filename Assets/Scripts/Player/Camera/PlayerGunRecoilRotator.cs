@@ -15,10 +15,11 @@ public class PlayerGunRecoilRotator : MonoBehaviour
     //public float snappiness;
     //public float returnSpeed;
     public Weapon mainWeapon;
+    bool isAiming;
 
     private void OnEnable()
     {
-        
+        isAiming = false;
     }
 
     private void Update()
@@ -44,5 +45,10 @@ public class PlayerGunRecoilRotator : MonoBehaviour
         { 
             targetRotation += new Vector3(-mainWeapon.recoil.x, Random.Range(-mainWeapon.recoil.y, mainWeapon.recoil.y), Random.Range(-mainWeapon.recoil.z, mainWeapon.recoil.z));
         }
+    }
+    public void SetIsAiming(bool isAiming)
+    {
+        if (this.isAiming != isAiming)
+            this.isAiming = isAiming;
     }
 }

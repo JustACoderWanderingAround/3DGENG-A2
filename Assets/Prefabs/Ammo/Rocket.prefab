@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -2735350455789214292}
   maxLifeTime: 10
-  collisionEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  collisionEffect: {fileID: 7230028606605483832, guid: d7a108b1413d45c4f9defdcaeee97b3e, type: 3}
   thrust: 5
   thrustTime: 2
 --- !u!54 &-2735350455789214292

@@ -38,6 +38,7 @@ public class Rocket : Bullet
             {
                 rb.AddForce(thrust * gameObject.transform.forward, ForceMode.Impulse);
                 Debug.Log("Thrust");
+                thrust -= Time.deltaTime;
             }
 
     }

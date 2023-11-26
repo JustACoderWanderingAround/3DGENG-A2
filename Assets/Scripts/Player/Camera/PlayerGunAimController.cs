@@ -20,9 +20,12 @@ public class PlayerGunAimController : MonoBehaviour
     public bool debugOnly;
 
     public Weapon mainWeapon;
+
+    bool isAiming;
     // Start is called before the first frame update
     void Start()
     {
+        isAiming = false;
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class PlayerGunAimController : MonoBehaviour
             {
                 aimRotation = mainWeapon.aimRotVector;
             }
-            if (Input.GetAxisRaw("Fire2") > 0 || debugOnly)
+            if (isAiming || debugOnly)
             {
                 targetPosition = aimPosition;
                 targetRotation = aimRotation;
@@ -63,5 +66,10 @@ public class PlayerGunAimController : MonoBehaviour
             currentPosition = Vector3.Slerp(currentPosition, targetPosition, mainWeapon.adsSpeed * Time.fixedDeltaTime);
             transform.localPosition = currentPosition;
         }
+    }
+    public void SetIsAiming(bool isAiming)
+    {
+        if (this.isAiming != isAiming)
+            this.isAiming = isAiming;
     }
 }

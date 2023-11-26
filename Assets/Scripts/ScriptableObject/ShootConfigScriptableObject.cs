@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Shoot Config", menuName = "Weapons/Shoot Config", order = 2)]
+[CreateAssetMenu(fileName = "Gun Config", menuName = "Weapons/Gun Config", order = 2)]
 public class ShootConfigScriptableObject : ScriptableObject
 {
     // Changes behaviour based on whether gun is hitscan or not
@@ -24,4 +24,6 @@ public class ShootConfigScriptableObject : ScriptableObject
     public bool canAuto;
 
     public bool canBurst;
+
+    public int maxMagNum;
 }
