@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour//, IShootObserver
             ammoCounter.text = "No weapon!";
         }
         // todo: update UI
-        Debug.Log("UI Updated");
+        //Debug.Log("UI Updated");
         ammoCounter.text = mainWeapon.currentBullets + " / " + ((mainWeapon.maxBullets * mainWeapon.magNum) + mainWeapon.leftoverBullets);
     }
 }

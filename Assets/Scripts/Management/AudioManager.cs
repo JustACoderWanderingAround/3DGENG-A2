@@ -15,16 +15,23 @@ public class AudioManager : MonoBehaviour//, IShootObserver
         audioSource.loop = false;
     }
 
-    public void PlayShootSound(Weapon mainWeapon, float unused)
+    public void PlayShootSound(Weapon mainWeapon)
     {
         // TODO: Play respective audio clip
         Debug.Log("Sound played");
-        if (audioSource.clip != mainWeapon.gunshotAudio)
+        if (audioSource.clip != mainWeapon.gunshotAudio && mainWeapon.gunshotAudio != null)
+        {
             audioSource.clip = mainWeapon.gunshotAudio;
-        audioSource.Play();
+            audioSource.Play();
+        }
     }
     public void PlayReloadSound(Weapon mainWeapon)
     {
-
+        Debug.Log("Sound played");
+        if (audioSource.clip != mainWeapon.reloadAudio && mainWeapon.reloadAudio != null)
+        {
+            audioSource.clip = mainWeapon.reloadAudio;
+            audioSource.Play();
+        }
     }
 }

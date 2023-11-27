@@ -21,7 +21,6 @@ public class Bullet : MonoBehaviour
         this.velocity = velocity;
         rb.AddForce(direction.x * velocity, direction.y * velocity, direction.z * velocity, ForceMode.Impulse);
         col = GetComponent<Collider>();
-        col.enabled = false;
     }
     private void Update()
     {
@@ -30,10 +29,7 @@ public class Bullet : MonoBehaviour
         {
            Destroy(gameObject);
         }
-        if (lifeTimer >= 0.01)
-        {
-            col.enabled = true;
-        }
+        
     }
     private void OnCollisionEnter(Collision collision)
     {

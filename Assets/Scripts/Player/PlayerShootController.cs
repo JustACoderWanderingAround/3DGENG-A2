@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerShootController : MonoBehaviour
 {
     // Events invoked when player shoots
-    private System.Action<Weapon, float> onShootEvents;
-    public System.Action<Weapon, float> OnShootEvents
+    private System.Action<Weapon> onShootEvents;
+    public System.Action<Weapon> OnShootEvents
     {
         get { return onShootEvents;  }
     }
@@ -80,7 +80,7 @@ public class PlayerShootController : MonoBehaviour
                 {
 
                     triggerHoldTime += Time.deltaTime;
-                    onShootEvents.Invoke(mainWeapon, triggerHoldTime);
+                    onShootEvents.Invoke(mainWeapon);
                     recoilRotator.RecoilFire();
                 }
 
@@ -111,7 +111,7 @@ public class PlayerShootController : MonoBehaviour
         }
 
     }
-    public void SubscribeToShootEvent (System.Action<Weapon, float> onShootEvent)
+    public void SubscribeToShootEvent (System.Action<Weapon> onShootEvent)
     {
         onShootEvents += onShootEvent;
     }

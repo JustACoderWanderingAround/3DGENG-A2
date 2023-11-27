@@ -94,6 +94,7 @@ MonoBehaviour:
   aimRotVector: {x: 1, y: 0, z: 0}
   aimPosVector: {x: 0, y: -0.07, z: 0.1}
   gunshotAudio: {fileID: 8300000, guid: 5ebe7cc7dacb13f468bf6e38ac6ee7c4, type: 3}
+  reloadAudio: {fileID: 8300000, guid: 4b3a142fbf35d284181312c67a24a213, type: 3}
   fireMode: 1
   currBullet: {fileID: 11400000, guid: 664864313592a6a4c9a422b14151aaec, type: 2}
 --- !u!65 &432400235676900681

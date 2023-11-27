@@ -43,12 +43,13 @@ public abstract class Weapon : MonoBehaviour
 
     public AudioClip gunshotAudio;
 
+    public AudioClip reloadAudio;
+
     public abstract string GetClassName();
     public abstract bool Shoot();
     
     public virtual void Reload()
     {
-
         if (magNum >= 1)
         {
             magNum -= 1;

@@ -6,7 +6,7 @@ public class EffectsManager : MonoBehaviour
 {
     [SerializeField]
     private List<EffectsFactory> effectsFactories;
-    public void SpawnShootEffect(Weapon mainWeapon, float unused)
+    public void SpawnShootEffect(Weapon mainWeapon)
     {
         
         IEffectProduct newEffect = effectsFactories[0].GetProduct(mainWeapon.barrelTip.transform.position, 0);

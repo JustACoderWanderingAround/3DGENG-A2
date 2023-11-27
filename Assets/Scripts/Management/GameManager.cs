@@ -14,12 +14,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // TODO: subscribe the managers to the shoot controller
+
         controller.SubscribeToShootEvent(audioManager.PlayShootSound);
         controller.SubscribeToShootEvent(ui.UpdateUI);
         controller.SubscribeToShootEvent(effects.SpawnShootEffect);
-        controller.SubscribeToReloadEvent(ui.UpdateUI);
         controller.SubscribeToShootEvent(camManager.OneShake);
+
+        controller.SubscribeToReloadEvent(ui.UpdateUI);
+
         controller.SubscribeToWeaponSwapEvent(ui.UpdateUI);
     }
 }

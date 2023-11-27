@@ -24,7 +24,7 @@ public class CameraManager : MonoBehaviour
     // Gun recoil (actually affects aim)
 
     // Camera shake VFX
-    public void OneShake(Weapon mainWeapon, float unused)
+    public void OneShake(Weapon mainWeapon)
     {
         StartCoroutine(PerformComplexShake(0.1f, mainWeapon));
         transform.localRotation = Quaternion.identity;
