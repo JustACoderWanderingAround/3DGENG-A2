@@ -90,8 +90,6 @@ public class PlayerMovementController : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
-        Debug.Log("IsRuning: " + isRunning);
-        Debug.Log("grounded: " + grounded);
     }
 
     private void Jump()

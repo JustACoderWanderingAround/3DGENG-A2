@@ -36,6 +36,11 @@ public class PlayerShootController : MonoBehaviour
 
     private int activeGunIndex = 0;
 
+    public void SetMainWeapon(Weapon newWeapon)
+    {
+        mainWeapon = newWeapon;
+    }
+
     private void OnEnable()
     {
         // set the game object which modifies camera recoil
@@ -100,7 +105,7 @@ public class PlayerShootController : MonoBehaviour
             onReloadEvents.Invoke(mainWeapon);
             Debug.Log("After currB: " + mainWeapon.currentBullets + " leftOverB: " + mainWeapon.leftoverBullets + " magNum: " + mainWeapon.magNum);
         }
-        int numberOfWeapons = 4; // Change this to the number of weapons you have
+        int numberOfWeapons = weaponSlot.transform.childCount; // Change this to the number of weapons you have
         for (int i = 1; i <= numberOfWeapons; i++)
         {
             if (Input.GetKey(KeyCode.Alpha0 + i))

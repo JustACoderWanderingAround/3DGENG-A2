@@ -44,6 +44,7 @@ public class Rocket : Bullet
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Rocket coll with " + collision.gameObject.name);
         GameObject instance = Instantiate(collisionEffect, transform.localPosition, transform.localRotation);
         Destroy(instance, 1.5f);
 

@@ -19,7 +19,8 @@ public class Bullet : MonoBehaviour
     {
         this.direction = direction;
         this.velocity = velocity;
-        rb.AddForce(direction.x * velocity, direction.y * velocity, direction.z * velocity, ForceMode.Impulse);
+        //rb.AddForce(direction.x * velocity, direction.y * velocity, direction.z * velocity, ForceMode.Impulse);
+        rb.velocity = direction * velocity;
         col = GetComponent<Collider>();
     }
     private void Update()

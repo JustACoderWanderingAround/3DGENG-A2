@@ -9,8 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7460a2bfae3b40840a320dc9f381de2c, type: 3}
-  m_Name: DEFAULT AMMO
+  m_Script: {fileID: 11500000, guid: 14bec71579153204f8819fc83f0d65b3, type: 3}
+  m_Name: COMPLETE0
   m_EditorClassIdentifier: 
-  bulletVelocity: 500
-  recoilMultipler: 1
+  isHitscan: 1
+  fireRate: 750
+  burstNum: 3
+  maxSpreadTime: 8
+  maxRecoilOffset: {x: 0, y: 0}
+  cameraShakeStrength: {x: 0, y: 0, z: 0}
+  damage: 25
+  canAuto: 1
+  canBurst: 1
+  maxMagNum: 0
