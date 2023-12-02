@@ -24,13 +24,16 @@ public class PlayerShootController : IItemTypeController
     [SerializeField]
     private PlayerGunAimController aimController;
 
+    [SerializeField]
+    private PlayerAimCameraZoomController zoomController;
     /// TODO: use this implementation of mainWeapon once player can swap weapons
     //public Weapon MainWeapon
     //{
     //    get { return mainWeapon; }
     //    set { value = mainWeapon; }
     //}
-    /*public*/ Weapon mainWeapon;
+    /*public*/
+    Weapon mainWeapon;
 
     float triggerHoldTime = 0;
 
@@ -128,6 +131,7 @@ public class PlayerShootController : IItemTypeController
     public override void UseRightMouseButton()
     {
         aiming = true;
+        zoomController.AimCamera(mainWeapon);
     }
 
     public override void SetMainItem(IItem newMainItem)

@@ -47,6 +47,8 @@ public abstract class Weapon : MonoBehaviour, IItem
 
     public abstract string GetClassName();
     public abstract bool Shoot();
+
+    public float aimZoomModifier = 1.0f;
     
     public virtual void Reload()
     {

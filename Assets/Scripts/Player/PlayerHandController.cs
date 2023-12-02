@@ -11,6 +11,8 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField]
     private GameObject hand;
     private Transform defaultTransform;
+
+    
     // Start is called before the first frame update
     private void OnEnable()
     {
