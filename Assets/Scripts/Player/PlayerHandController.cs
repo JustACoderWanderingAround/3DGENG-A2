@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerHandController : MonoBehaviour
 {
-    [SerializeField] 
-    private PlayerShootController shootController;
+    //[SerializeField]
+    [SerializeField]
+    private List<GameObject> controllerList;
+    private IItemTypeController mainController;
     [SerializeField]
     private GameObject hand;
     // Start is called before the first frame update
@@ -18,7 +20,7 @@ public class PlayerHandController : MonoBehaviour
                 hand.transform.GetChild(i).gameObject.SetActive(false);
             }
             //mainWeapon = hand.transform.GetChild(0).GetComponent<Weapon>();
-            shootController.SetMainWeapon(hand.transform.GetChild(0).GetComponent<Weapon>());
+            //mainController.SetMainWeapon(hand.transform.GetChild(0).GetComponent<Weapon>());
             hand.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
@@ -32,22 +34,33 @@ public class PlayerHandController : MonoBehaviour
             if (Input.GetKey(KeyCode.Alpha0 + i))
             {
 
-                shootController.SwapWeapon(i - 1);
+                //mainController.SwapWeapon(i - 1);
                 break; // Stop checking for keys once one is pressed
             }
         }
     }
     void SwapItem(int index)
     {
+        if (hand.transform.childCount > 1)
+        {
+            for (int i = 0; i < hand.transform.childCount; ++i)
+            {
+                hand.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+        }
         GameObject newMainItem = hand.transform.GetChild(index).gameObject;
         if (newMainItem.GetComponent<Weapon>() != null)
         {
-            shootController.SetMainWeapon(newMainItem.GetComponent<Weapon>());
+            mainController = controllerList[0].GetComponent<PlayerShootController>();
+            mainController.SetMainItem(newMainItem.GetComponent<Weapon>());
 
         }
         else if (newMainItem.GetComponent<Throwable>() != null)
         {
             // todo: add throwable controller
+            mainController = controllerList[1].GetComponent<PlayerThrowableController>();
+            mainController.SetMainItem(newMainItem.GetComponent<Throwable>());
         }
     }
 }

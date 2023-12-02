@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
     public UIManager ui;
     public EffectsManager effects;
-    public PlayerShootController controller;
+    public PlayerShootController shootController;
     public CameraManager camManager;
 
 
@@ -15,13 +15,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        controller.SubscribeToShootEvent(audioManager.PlayShootSound);
-        controller.SubscribeToShootEvent(ui.UpdateUI);
-        controller.SubscribeToShootEvent(effects.SpawnShootEffect);
-        controller.SubscribeToShootEvent(camManager.OneShake);
-
-        controller.SubscribeToReloadEvent(ui.UpdateUI);
-
-        controller.SubscribeToWeaponSwapEvent(ui.UpdateUI);
+        shootController.SubscribeToShootEvent(audioManager.PlayShootSound);
+        shootController.SubscribeToShootEvent(ui.UpdateUI);
+        shootController.SubscribeToShootEvent(effects.SpawnShootEffect);
+        shootController.SubscribeToShootEvent(camManager.OneShake);
+        shootController.SubscribeToReloadEvent(ui.UpdateUI);
+        shootController.SubscribeToWeaponSwapEvent(ui.UpdateUI);
     }
 }

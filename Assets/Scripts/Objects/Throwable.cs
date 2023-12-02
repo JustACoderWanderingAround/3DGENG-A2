@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Throwable : MonoBehaviour
+public class Throwable : MonoBehaviour, IItem
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,10 @@ public class Throwable : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Use()
+    {
+
     }
 }

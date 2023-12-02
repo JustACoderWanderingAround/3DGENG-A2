@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class PlayerShootController : MonoBehaviour
+public class PlayerShootController : IItemTypeController
 {
     // Events invoked when player shoots
     private System.Action<Weapon> onShootEvents;
@@ -77,21 +77,7 @@ public class PlayerShootController : MonoBehaviour
         // on fire events
         if (Input.GetAxisRaw("Fire1") > 0)
         {
-            if (mainWeapon != null)
-            {
-                bool mainWeaponShoot = mainWeapon.Shoot();
-                Debug.Log(mainWeaponShoot);
-                if (mainWeaponShoot)
-                {
-
-                    triggerHoldTime += Time.deltaTime;
-                    onShootEvents.Invoke(mainWeapon);
-                    recoilRotator.RecoilFire();
-                }
-
-            }
-            else
-                onSwapEvents.Invoke(null);
+            UseLeftMouseButton();
         }
         else
         {
@@ -116,6 +102,36 @@ public class PlayerShootController : MonoBehaviour
         }
 
     }
+
+    public override void UseLeftMouseButton()
+    {
+        if (mainWeapon != null)
+        {
+            bool mainWeaponShoot = mainWeapon.Shoot();
+            Debug.Log(mainWeaponShoot);
+            if (mainWeaponShoot)
+            {
+
+                triggerHoldTime += Time.deltaTime;
+                onShootEvents.Invoke(mainWeapon);
+                recoilRotator.RecoilFire();
+            }
+
+        }
+        else
+            onSwapEvents.Invoke(null);
+    }
+
+    public override void UseRightMouseButton()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void SetMainItem(IItem newMainItem)
+    {
+
+    }
+
     public void SubscribeToShootEvent (System.Action<Weapon> onShootEvent)
     {
         onShootEvents += onShootEvent;
@@ -134,6 +150,7 @@ public class PlayerShootController : MonoBehaviour
     {
         if (weaponSlot.transform.GetChild(index) != null)
         {
+            /*move to hand controller from here*/
             if (weaponSlot.transform.childCount > 1)
             {
                 for (int i = 0; i < weaponSlot.transform.childCount; ++i)
@@ -142,10 +159,12 @@ public class PlayerShootController : MonoBehaviour
                 }
                 
             }
+            /*to here*/
             mainWeapon = weaponSlot.transform.GetChild(index).GetComponent<Weapon>();
             weaponSlot.transform.GetChild(index).gameObject.SetActive(true);
         }
         else return;
 
     }
+
 }

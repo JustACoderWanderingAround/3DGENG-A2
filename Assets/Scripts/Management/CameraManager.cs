@@ -27,16 +27,10 @@ public class CameraManager : MonoBehaviour
     public void OneShake(Weapon mainWeapon)
     {
         StartCoroutine(PerformComplexShake(0.1f, mainWeapon));
-        transform.localRotation = Quaternion.identity;
-    }
-    public void OneShake()
-    {
-      
+        transform.localEulerAngles = Vector3.zero;
     }
     IEnumerator PerformComplexShake(float duration, Weapon mainWeapon)
     {
-        Quaternion startRotation = transform.localRotation;
-        Vector3 startPosition = transform.position;
         float elapsedTime = 0.0f;
 
         while (elapsedTime < duration)
@@ -49,16 +43,11 @@ public class CameraManager : MonoBehaviour
                 Random.Range(-mainWeapon.shootConfig.cameraShakeStrength.z, mainWeapon.shootConfig.cameraShakeStrength.z)
                 
             )); ;
-            Vector3 currPos = this.transform.position;
-            //newPosition = new Vector3(currPos.x + Random.Range(-0.05f, 0.05f), currPos.y + Random.Range(-0.1f, 0.05f), startPosition.z);
-
-            //transform.position = newPosition;
-
 
             yield return null;
         }
 
-        transform.localRotation = startRotation;
+        transform.localEulerAngles = Vector3.zero;
         //transform.localPosition = startPosition;
     }
 }

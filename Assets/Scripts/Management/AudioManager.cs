@@ -22,8 +22,9 @@ public class AudioManager : MonoBehaviour//, IShootObserver
         if (audioSource.clip != mainWeapon.gunshotAudio && mainWeapon.gunshotAudio != null)
         {
             audioSource.clip = mainWeapon.gunshotAudio;
-            audioSource.Play();
+            
         }
+        audioSource.Play();
     }
     public void PlayReloadSound(Weapon mainWeapon)
     {
@@ -31,7 +32,8 @@ public class AudioManager : MonoBehaviour//, IShootObserver
         if (audioSource.clip != mainWeapon.reloadAudio && mainWeapon.reloadAudio != null)
         {
             audioSource.clip = mainWeapon.reloadAudio;
-            audioSource.Play();
+           
         }
+        audioSource.Play();
     }
 }
