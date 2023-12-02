@@ -34,6 +34,7 @@ public class PlayerHandController : MonoBehaviour
             if (Input.GetKey(KeyCode.Alpha0 + i))
             {
 
+                SwapItem(i - 1);
                 //mainController.SwapWeapon(i - 1);
                 break; // Stop checking for keys once one is pressed
             }
