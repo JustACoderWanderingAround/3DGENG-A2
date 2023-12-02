@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: -2735350455789214292}
   - component: {fileID: -2518323974969793164}
   - component: {fileID: 1041832441269548389}
+  - component: {fileID: 972070642779967330}
   m_Layer: 9
   m_Name: Rocket
   m_TagString: Projectile
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -2735350455789214292}
   maxLifeTime: 10
-  collisionEffect: {fileID: 7230028606605483832, guid: d7a108b1413d45c4f9defdcaeee97b3e, type: 3}
+  collisionEffect: {fileID: 1025285306637258, guid: d8f0099df63275647a8bcf646df1ca00, type: 3}
   thrust: 3
   thrustTime: 1.5
 --- !u!54 &-2735350455789214292
@@ -264,3 +265,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &972070642779967330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782927513047969931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4597e07056304349a9f465fe549716a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5
+  power: 10
+  explosionEffect: {fileID: 7230028606605483832, guid: d7a108b1413d45c4f9defdcaeee97b3e, type: 3}

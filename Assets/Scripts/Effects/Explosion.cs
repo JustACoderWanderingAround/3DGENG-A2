@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Explosion : MonoBehaviour
 {
     public float radius = 5.0f;
     public float power = 10.0f;
+    public GameObject explosionEffect;
     // Start is called before the first frame update
     void Start()
     {
-        Explode();
+    
     }
     public void Explode()
     {
@@ -23,6 +23,8 @@ public class Explosion : MonoBehaviour
             if (rb != null)
                 rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
         }
+        GameObject instance = Instantiate(explosionEffect, transform.localPosition, transform.localRotation);
+        Destroy(instance, 1.5f);
         Debug.Log("I exploded!");
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Explosion))]
 public class Grenade : Throwable
 {
+
+
     Explosion explosion;
 
     [SerializeField]
@@ -28,10 +30,14 @@ public class Grenade : Throwable
         if (startTimer)
         {
             grenadeTimer -= Time.deltaTime;
+            Debug.Log("Grenade timer: " + grenadeTimer.ToString());
         }
         if (grenadeTimer <= 0)
         {
+            startTimer = false;
+            Debug.Log("Explosion time");
             explosion.Explode();
+            Destroy(gameObject);
         }
     }
 }

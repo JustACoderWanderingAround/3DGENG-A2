@@ -60,9 +60,7 @@ public class PlayerPickupItemController : MonoBehaviour
             if (playerHand.transform.GetChild(i).gameObject.activeInHierarchy)
             {
                 objectToDrop = playerHand.transform.GetChild(i);
-                if (objectToDrop.GetComponent<Rigidbody>())
-                    objectToDrop.GetComponent<Rigidbody>().isKinematic = true;
-                else
+                if (!objectToDrop.GetComponent<Rigidbody>())
                 {
                     objectToDrop.gameObject.AddComponent<Rigidbody>();
                 }

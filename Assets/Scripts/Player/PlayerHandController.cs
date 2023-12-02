@@ -10,9 +10,11 @@ public class PlayerHandController : MonoBehaviour
     private IItemTypeController mainController;
     [SerializeField]
     private GameObject hand;
+    private Transform defaultTransform;
     // Start is called before the first frame update
     private void OnEnable()
     {
+        defaultTransform = hand.transform;
         if (hand.transform.childCount > 0)
         {
             for (int i = 0; i < hand.transform.childCount; ++i)
@@ -22,6 +24,8 @@ public class PlayerHandController : MonoBehaviour
             //mainWeapon = hand.transform.GetChild(0).GetComponent<Weapon>();
             //mainController.SetMainWeapon(hand.transform.GetChild(0).GetComponent<Weapon>());
             hand.transform.GetChild(0).gameObject.SetActive(true);
+            mainController = controllerList[0].GetComponent<IItemTypeController>();
+            SwapItem(0);
         }
     }
 
@@ -39,9 +43,18 @@ public class PlayerHandController : MonoBehaviour
                 break; // Stop checking for keys once one is pressed
             }
         }
+        if(Input.GetMouseButton(0))
+        {
+            mainController.UseLeftMouseButton();
+        }
+        if (Input.GetMouseButton(1))
+        {
+            mainController.UseRightMouseButton();
+        }
     }
     void SwapItem(int index)
     {
+        
         if (hand.transform.childCount > 1)
         {
             for (int i = 0; i < hand.transform.childCount; ++i)
@@ -51,6 +64,7 @@ public class PlayerHandController : MonoBehaviour
 
         }
         GameObject newMainItem = hand.transform.GetChild(index).gameObject;
+        newMainItem.SetActive(true);
         if (newMainItem.GetComponent<Weapon>() != null)
         {
             mainController = controllerList[0].GetComponent<PlayerShootController>();
@@ -63,5 +77,7 @@ public class PlayerHandController : MonoBehaviour
             mainController = controllerList[1].GetComponent<PlayerThrowableController>();
             mainController.SetMainItem(newMainItem.GetComponent<Throwable>());
         }
+        hand.transform.position = defaultTransform.position;
+        hand.transform.rotation = defaultTransform.rotation;
     }
 }
