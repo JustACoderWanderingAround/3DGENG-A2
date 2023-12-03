@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
     public UIManager ui;
     public EffectsManager effects;
-    public PlayerShootController shootController;
     public PlayerHandController handController;
     public CameraManager camManager;
 
@@ -15,7 +14,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        PlayerShootController shootController = (PlayerShootController)handController.GetController(0);
         shootController.SubscribeToShootEvent(audioManager.PlayShootSound);
         shootController.SubscribeToShootEvent(ui.UpdateUI);
         shootController.SubscribeToShootEvent(effects.SpawnShootEffect);

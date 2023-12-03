@@ -104,4 +104,8 @@ public class PlayerHandController : MonoBehaviour
     {
         onSwapEvents += onSwapEvent;
     }
+    public IItemTypeController GetController(int index)
+    {
+        return controllerList[index].GetComponent<IItemTypeController>();
+    }
 }
