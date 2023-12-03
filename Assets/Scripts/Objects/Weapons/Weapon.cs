@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour, IItem
+public abstract class Weapon : IItem
 {
     [SerializeField]
     protected GameObject bulletPrefab;
@@ -44,12 +44,10 @@ public abstract class Weapon : MonoBehaviour, IItem
     public AudioClip gunshotAudio;
 
     public AudioClip reloadAudio;
-
-    public abstract string GetClassName();
     public abstract bool Shoot();
 
     public float aimZoomModifier = 1.0f;
-    
+
     public virtual void Reload()
     {
         if (magNum >= 1)

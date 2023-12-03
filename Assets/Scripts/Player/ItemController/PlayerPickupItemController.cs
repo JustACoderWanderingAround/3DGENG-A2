@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerHandController))]
 public class PlayerPickupItemController : MonoBehaviour
 {
     [SerializeField]
@@ -29,6 +30,7 @@ public class PlayerPickupItemController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
+            Debug.Log("Pickup");
             pickup = true;
         }
         else
@@ -41,15 +43,14 @@ public class PlayerPickupItemController : MonoBehaviour
         var colliders = Physics.OverlapSphere(transform.position, 5f, itemLayermask);
         foreach (var collider in colliders)
         {
-            if (collider.gameObject.CompareTag("Item"))
+            
+            Debug.Log($"{collider.gameObject.name} is nearby");
+            if (pickup)
             {
-                Debug.Log($"{collider.gameObject.name} is nearby");
-                if (pickup)
-                {
-                    PickItemUp(collider.gameObject);
-                    pickup = false;
-                }
+                PickItemUp(collider.gameObject);
+                pickup = false;
             }
+            
         }
     }
     void DropCurrentItem()

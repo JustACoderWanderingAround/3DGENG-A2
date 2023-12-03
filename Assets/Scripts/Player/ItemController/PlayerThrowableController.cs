@@ -47,20 +47,23 @@ public class PlayerThrowableController : IItemTypeController
     }
     void CookItem()
     {
-        mainThrowable.Use();
+        if (mainThrowable != null)
+            mainThrowable.Use();
     }
     void ThrowItem()
     {
-
-        if (!mainThrowable.GetComponent<Rigidbody>())
-        { 
-            mainThrowable.gameObject.AddComponent<Rigidbody>();
+        if (mainThrowable != null)
+        {
+            if (!mainThrowable.GetComponent<Rigidbody>())
+            {
+                mainThrowable.gameObject.AddComponent<Rigidbody>();
+            }
+            if (mainThrowable.gameObject.GetComponent<Collider>())
+                mainThrowable.gameObject.GetComponent<Collider>().enabled = true;
+            Rigidbody itemRb = mainThrowable.gameObject.GetComponent<Rigidbody>();
+            mainThrowable.transform.parent = null;
+            itemRb.AddForce(orientation.transform.forward * throwStrength, ForceMode.Impulse);
         }
-        if (mainThrowable.gameObject.GetComponent<Collider>())
-            mainThrowable.gameObject.GetComponent<Collider>().enabled = true;
-        Rigidbody itemRb = mainThrowable.gameObject.GetComponent<Rigidbody>();
-        mainThrowable.transform.parent = null;
-        itemRb.AddForce(orientation.transform.forward * throwStrength, ForceMode.Impulse);
     }
 
     public override IItem GetMainItem()

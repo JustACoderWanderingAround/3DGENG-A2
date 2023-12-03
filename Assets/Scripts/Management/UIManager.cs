@@ -23,4 +23,18 @@ public class UIManager : MonoBehaviour//, IShootObserver
         else 
             ammoCounter.text = mainWeapon.currentBullets + " / " + ((mainWeapon.maxBullets * mainWeapon.magNum) + mainWeapon.leftoverBullets);
     }
+    public void UpdateUI(IItem item)
+    {
+        if (item.GetClassName() == "Gun")
+        {
+            Weapon mainWeapon = (Weapon)item;
+            Debug.Log("UI Updated");
+            ammoCounter.text = mainWeapon.currentBullets + " / " + ((mainWeapon.maxBullets * mainWeapon.magNum) + mainWeapon.leftoverBullets);
+        }
+        else if (item.GetClassName() == "Grenade")
+        {
+            ammoCounter.text = "Press LMB to throw!";
+        }
+        
+    }
 }

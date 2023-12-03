@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &46004618
 Transform:
   m_ObjectHideFlags: 0
@@ -335,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 6031217234241061748, guid: cc338ba19b3f309469a646aa568db0e0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031217234241061748, guid: cc338ba19b3f309469a646aa568db0e0, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc338ba19b3f309469a646aa568db0e0, type: 3}
@@ -910,6 +914,10 @@ PrefabInstance:
     - target: {fileID: 4078569371838096850, guid: 16b3dcdd3c2fc724b95324f8cf5b95a1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4078569371838096850, guid: 16b3dcdd3c2fc724b95324f8cf5b95a1, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 8642811004038310317, guid: 16b3dcdd3c2fc724b95324f8cf5b95a1, type: 3}
       propertyPath: aimZoomModifier
@@ -1874,6 +1882,7 @@ MonoBehaviour:
   ui: {fileID: 344049986}
   effects: {fileID: 1430464683}
   shootController: {fileID: 1938087332}
+  handController: {fileID: 1231067109}
   camManager: {fileID: 963194229}
 --- !u!4 &1055969900
 Transform:
@@ -2095,6 +2104,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8951776062510028635, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13cd29992d792294cabfc52e78fa0d4f, type: 3}
 --- !u!1001 &1209375633
@@ -2126,7 +2139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1086756726, guid: 69e63e15cee509645b8f547e27d1d821, type: 3}
       propertyPath: aimZoomModifier
-      value: 0.35
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 1536427269234446816, guid: 69e63e15cee509645b8f547e27d1d821, type: 3}
       propertyPath: m_Name
@@ -2135,6 +2148,10 @@ PrefabInstance:
     - target: {fileID: 1536427269234446816, guid: 69e63e15cee509645b8f547e27d1d821, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536427269234446816, guid: 69e63e15cee509645b8f547e27d1d821, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 2168954750530292570, guid: 69e63e15cee509645b8f547e27d1d821, type: 3}
       propertyPath: m_RootOrder
@@ -2192,8 +2209,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1231067107}
   - component: {fileID: 1231067108}
+  - component: {fileID: 1231067109}
   m_Layer: 3
-  m_Name: PickupController
+  m_Name: HandController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2230,6 +2248,22 @@ MonoBehaviour:
   itemLayermask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &1231067109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231067106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2b68065490a814dbcea04a75f56233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerList:
+  - {fileID: 1938087330}
+  - {fileID: 395232567}
+  hand: {fileID: 1596546692}
 --- !u!1 &1297975159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,7 +2428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca80f157a14f03489fd0712441f8f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugOnly: 1
+  debugOnly: 0
 --- !u!1 &1626829443
 GameObject:
   m_ObjectHideFlags: 0

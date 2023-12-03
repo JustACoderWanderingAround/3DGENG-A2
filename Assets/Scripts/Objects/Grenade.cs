@@ -13,6 +13,10 @@ public class Grenade : Throwable
     private float grenadeTimer = 5.0f;
 
     private bool startTimer = false;
+    public override string GetClassName()
+    {
+        return "Grenade";
+    }
     public override void Use()
     {
         startTimer = true;

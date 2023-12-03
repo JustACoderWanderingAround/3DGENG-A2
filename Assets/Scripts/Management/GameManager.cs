@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public UIManager ui;
     public EffectsManager effects;
     public PlayerShootController shootController;
+    public PlayerHandController handController;
     public CameraManager camManager;
 
 
@@ -20,6 +21,6 @@ public class GameManager : MonoBehaviour
         shootController.SubscribeToShootEvent(effects.SpawnShootEffect);
         shootController.SubscribeToShootEvent(camManager.OneShake);
         shootController.SubscribeToReloadEvent(ui.UpdateUI);
-        shootController.SubscribeToWeaponSwapEvent(ui.UpdateUI);
+        handController.SubscribeToItemSwapEvent(ui.UpdateUI);
     }
 }

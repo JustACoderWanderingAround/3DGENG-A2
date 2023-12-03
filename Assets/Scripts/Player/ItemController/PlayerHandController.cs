@@ -11,6 +11,7 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField]
     private GameObject hand;
     private Transform defaultTransform;
+    public System.Action<IItem> onSwapEvents;
 
     private int currControllerIndex = 0;
     
@@ -59,7 +60,7 @@ public class PlayerHandController : MonoBehaviour
     }
     void SwapItem(int index)
     {
-        
+
         if (hand.transform.childCount > 1)
         {
             for (int i = 0; i < hand.transform.childCount; ++i)
@@ -91,8 +92,16 @@ public class PlayerHandController : MonoBehaviour
             }
             mainController.SetMainItem(newMainItem.GetComponent<Throwable>());
         }
+        else
+        {
+            mainController.SetMainItem(null);
+        }
         hand.transform.position = defaultTransform.position;
         hand.transform.rotation = defaultTransform.rotation;
-        
+        onSwapEvents.Invoke(mainController.GetMainItem());
+    }
+    public void SubscribeToItemSwapEvent(System.Action<IItem> onSwapEvent)
+    {
+        onSwapEvents += onSwapEvent;
     }
 }
