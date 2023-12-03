@@ -8,7 +8,8 @@ public class PlayerThrowableController : IItemTypeController
     [SerializeField]
     public GameObject orientation;
     [SerializeField]
-    private float throwStrength = 5.0f;
+    private float defaultStrength = 5.0f;
+    private float throwStrength;
 
     bool startCooking = false;
     public override void UseLeftMouseButton()
@@ -26,7 +27,7 @@ public class PlayerThrowableController : IItemTypeController
     // Start is called before the first frame update
     void Start()
     {
-        
+        throwStrength = defaultStrength;
     }
 
     // Update is called once per frame
@@ -34,6 +35,7 @@ public class PlayerThrowableController : IItemTypeController
     {
         if (startCooking)
         {
+            throwStrength += Time.deltaTime * 10f;
             if (Input.GetMouseButtonUp(0))
             {
                 ThrowItem();
@@ -63,6 +65,7 @@ public class PlayerThrowableController : IItemTypeController
             Rigidbody itemRb = mainThrowable.gameObject.GetComponent<Rigidbody>();
             mainThrowable.transform.parent = null;
             itemRb.AddForce(orientation.transform.forward * throwStrength, ForceMode.Impulse);
+            throwStrength = defaultStrength;
         }
     }
 

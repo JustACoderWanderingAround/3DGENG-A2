@@ -81,6 +81,8 @@ public class PlayerPickupItemController : MonoBehaviour
         {
             Destroy(itemToPick.GetComponent<Rigidbody>());
         }
+        if (itemToPick.gameObject.GetComponent<Collider>())
+            itemToPick.gameObject.GetComponent<Collider>().enabled = false;
         // set transform to player's hand
         itemToPick.transform.parent = playerHand.transform;
         itemToPick.transform.localPosition = Vector3.zero;

@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 503559185}
-  throwStrength: 5
+  defaultStrength: 5
 --- !u!1001 &485717847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2839,6 +2839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a65ad8744d08249802658bda9d7506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainWeapon: {fileID: 0}
 --- !u!1 &2081116653
 GameObject:
   m_ObjectHideFlags: 0
@@ -3143,6 +3144,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1596546693}
     m_Modifications:
+    - target: {fileID: 8326864802429135129, guid: da28700ccdbdb194c9c930c7dc1f3995, type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 1828176872806910, guid: a6a47603bbf9e29418f49a1e8fc9ddbd, type: 3}
     - target: {fileID: 8326864802429135132, guid: da28700ccdbdb194c9c930c7dc1f3995, type: 3}
       propertyPath: m_Name
       value: MK2 Frag

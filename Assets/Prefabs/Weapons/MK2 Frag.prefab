@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   power: 10
-  explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+  explosionEffect: {fileID: 185521087629609635, guid: 2ef68dbc3ee902244981abfe7ac38a76, type: 3}
 --- !u!54 &8326864802429135131
 Rigidbody:
   m_ObjectHideFlags: 0
