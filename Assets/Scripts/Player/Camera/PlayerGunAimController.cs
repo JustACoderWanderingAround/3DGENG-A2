@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGunAimController : MonoBehaviour
+public class PlayerGunAimController : MonoBehaviour, IPlayerAimController
 {
 
     private Vector3 currentRotation;
@@ -19,7 +19,7 @@ public class PlayerGunAimController : MonoBehaviour
 
     public bool debugOnly;
 
-    public Weapon mainWeapon;
+    private Weapon mainWeapon;
 
     bool isAiming;
     // Start is called before the first frame update
@@ -30,6 +30,45 @@ public class PlayerGunAimController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        OnUpdate();   
+    }
+    private void FixedUpdate()
+    {
+        if (mainWeapon != null)
+        {
+            targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+            currentRotation = Vector3.Slerp(currentRotation, targetRotation, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+            transform.localRotation = Quaternion.Euler(currentRotation);
+
+            targetPosition = Vector3.Lerp(targetPosition, Vector3.zero, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+            currentPosition = Vector3.Slerp(currentPosition, targetPosition, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+            transform.localPosition = currentPosition;
+        }
+    }
+    public void SetIsAiming(bool isAiming)
+    {
+        if (this.isAiming != isAiming)
+            this.isAiming = isAiming;
+    }
+    public void ResetHandPosition()
+    {
+        transform.localPosition = hipPosition;
+        transform.localRotation = Quaternion.Euler(hipRotation); 
+
+    }
+
+    public void SetMainWeapon(Weapon mainWeapon)
+    {
+        this.mainWeapon = mainWeapon;
+    }
+
+    public void OnAim()
+    {
+        isAiming = true;
+    }
+
+    public void OnUpdate()
     {
         if (mainWeapon != null)
         {
@@ -52,24 +91,11 @@ public class PlayerGunAimController : MonoBehaviour
                 targetRotation = hipRotation;
             }
         }
-        
+        isAiming = false;
     }
-    private void FixedUpdate()
-    {
-        if (mainWeapon != null)
-        {
-            targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, mainWeapon.adsSpeed * Time.fixedDeltaTime);
-            currentRotation = Vector3.Slerp(currentRotation, targetRotation, mainWeapon.adsSpeed * Time.fixedDeltaTime);
-            transform.localRotation = Quaternion.Euler(currentRotation);
 
-            targetPosition = Vector3.Lerp(targetPosition, Vector3.zero, mainWeapon.adsSpeed * Time.fixedDeltaTime);
-            currentPosition = Vector3.Slerp(currentPosition, targetPosition, mainWeapon.adsSpeed * Time.fixedDeltaTime);
-            transform.localPosition = currentPosition;
-        }
-    }
-    public void SetIsAiming(bool isAiming)
+    public Weapon GetMainWeapon()
     {
-        if (this.isAiming != isAiming)
-            this.isAiming = isAiming;
+       return mainWeapon;
     }
 }

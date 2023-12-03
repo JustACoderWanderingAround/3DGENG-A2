@@ -62,4 +62,9 @@ public class PlayerThrowableController : IItemTypeController
         mainThrowable.transform.parent = null;
         itemRb.AddForce(orientation.transform.forward * throwStrength, ForceMode.Impulse);
     }
+
+    public override IItem GetMainItem()
+    {
+        return mainThrowable;
+    }
 }

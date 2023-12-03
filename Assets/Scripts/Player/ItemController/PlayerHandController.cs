@@ -12,9 +12,9 @@ public class PlayerHandController : MonoBehaviour
     private GameObject hand;
     private Transform defaultTransform;
 
+    private int currControllerIndex = 0;
     
-    // Start is called before the first frame update
-    private void OnEnable()
+    private void Start()
     {
         defaultTransform = hand.transform;
         if (hand.transform.childCount > 0)
@@ -25,10 +25,10 @@ public class PlayerHandController : MonoBehaviour
             }
             //mainWeapon = hand.transform.GetChild(0).GetComponent<Weapon>();
             //mainController.SetMainWeapon(hand.transform.GetChild(0).GetComponent<Weapon>());
-            hand.transform.GetChild(0).gameObject.SetActive(true);
-            mainController = controllerList[0].GetComponent<IItemTypeController>();
-            SwapItem(0);
+            hand.transform.GetChild(currControllerIndex).gameObject.SetActive(true);
+            mainController = controllerList[currControllerIndex].GetComponent<IItemTypeController>();
         }
+        SwapItem(0);
     }
 
         // Update is called once per frame
@@ -45,13 +45,16 @@ public class PlayerHandController : MonoBehaviour
                 break; // Stop checking for keys once one is pressed
             }
         }
-        if(Input.GetMouseButton(0))
+        if (mainController.GetComponent<IItemTypeController>().GetMainItem() != null)
         {
-            mainController.UseLeftMouseButton();
-        }
-        if (Input.GetMouseButton(1))
-        {
-            mainController.UseRightMouseButton();
+            if (Input.GetMouseButton(0))
+            {
+                mainController.UseLeftMouseButton();
+            }
+            if (Input.GetMouseButton(1))
+            {
+                mainController.UseRightMouseButton();
+            }
         }
     }
     void SwapItem(int index)
@@ -65,21 +68,31 @@ public class PlayerHandController : MonoBehaviour
             }
 
         }
+       
         GameObject newMainItem = hand.transform.GetChild(index).gameObject;
         newMainItem.SetActive(true);
         if (newMainItem.GetComponent<Weapon>() != null)
         {
-            mainController = controllerList[0].GetComponent<PlayerShootController>();
+            if (currControllerIndex != 0)
+            {
+                currControllerIndex = 0;
+                mainController = controllerList[0].GetComponent<PlayerShootController>();
+            }
             mainController.SetMainItem(newMainItem.GetComponent<Weapon>());
 
         }
         else if (newMainItem.GetComponent<Throwable>() != null)
         {
-            // todo: add throwable controller
-            mainController = controllerList[1].GetComponent<PlayerThrowableController>();
+            if (mainController != controllerList[1])
+            {
+
+                currControllerIndex = 1;
+                mainController = controllerList[1].GetComponent<PlayerThrowableController>();
+            }
             mainController.SetMainItem(newMainItem.GetComponent<Throwable>());
         }
         hand.transform.position = defaultTransform.position;
         hand.transform.rotation = defaultTransform.rotation;
+        
     }
 }
