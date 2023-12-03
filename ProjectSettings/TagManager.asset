@@ -7,6 +7,7 @@ TagManager:
   - Item
   - Projectile
   - Weapon
+  - WeaponMount
   layers:
   - Default
   - TransparentFX

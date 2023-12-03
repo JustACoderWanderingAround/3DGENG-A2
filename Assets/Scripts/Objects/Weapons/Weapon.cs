@@ -38,8 +38,9 @@ public abstract class Weapon : IItem
 
     public float adsSpeed = 1f;
 
-    public Vector3 aimRotVector = new Vector3(0f, -0.125f, 0.35f);
     public Vector3 aimPosVector = new Vector3(0f, -0.125f, 0.35f);
+    public Vector3 aimRotVector = new Vector3(0f, -0.125f, 0.35f);
+
 
     public AudioClip gunshotAudio;
 

@@ -7,7 +7,6 @@ public class PlayerAimCameraZoomController : MonoBehaviour,IPlayerAimController
 
     private Camera zoomCamera;
     public bool isAiming;
-
     private Vector3 currentFOV = Vector3.zero, targetFOV = new Vector3(60, 0, 0);
     [SerializeField]
     private Vector3 defaultFOV = new Vector3(60, 0 ,0);
@@ -22,6 +21,10 @@ public class PlayerAimCameraZoomController : MonoBehaviour,IPlayerAimController
     {
         if (mainWeapon != null)
             OnUpdate();
+        if (isAiming)
+        {
+            OnAim();
+        }
     }
 
     public void SetMainWeapon(Weapon mainWeapon)
