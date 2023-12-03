@@ -1030,6 +1030,11 @@ MonoBehaviour:
   jumpKey: 32
   jumpCooldown: 1
   jumpForce: 5
+  crouchMulti: 0.8
+  proneMulti: 0.45
+  stanceState: 0
+  stateIncreaseKey: 306
+  stateDecreaseKey: 304
 --- !u!114 &488486779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,7 +1886,6 @@ MonoBehaviour:
   audioManager: {fileID: 1121371059}
   ui: {fileID: 344049986}
   effects: {fileID: 1430464683}
-  shootController: {fileID: 1938087332}
   handController: {fileID: 1231067109}
   camManager: {fileID: 963194229}
 --- !u!4 &1055969900
