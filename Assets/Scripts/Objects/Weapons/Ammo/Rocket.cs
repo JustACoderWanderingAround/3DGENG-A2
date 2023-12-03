@@ -36,13 +36,11 @@ public class Rocket : Bullet
 
     private void FixedUpdate()
     {
-        if (rb)
-            if (thrustTimer < thrustTime)
-            {
-                rb.AddForce(thrust * gameObject.transform.forward, ForceMode.Impulse);
-                Debug.Log("Thrust");
-                thrust -= Time.deltaTime;
-            }
+        if (thrustTimer < thrustTime)
+        {
+            rb.AddForce(thrust * gameObject.transform.forward, ForceMode.Impulse);
+            thrust -= Time.deltaTime;
+        }
 
     }
     private void OnCollisionEnter(Collision collision)

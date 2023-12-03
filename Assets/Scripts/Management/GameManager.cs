@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         PlayerShootController shootController = (PlayerShootController)handController.GetController(0);
         shootController.SubscribeToShootEvent(audioManager.PlayShootSound);

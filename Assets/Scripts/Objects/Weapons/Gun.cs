@@ -25,7 +25,7 @@ public class Gun : Weapon
         return "Gun";
     }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentBullets = maxBullets;
         shootTimer = 0;
