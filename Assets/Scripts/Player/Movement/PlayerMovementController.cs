@@ -62,8 +62,8 @@ public class PlayerMovementController : MonoBehaviour
     bool canJump;
 
 
-    float horizontalInput;
-    float verticalInput;
+    public float horizontalInput;
+    public float verticalInput;
     bool isRunning;
     bool isJumping;
     // Start is called before the first frame update

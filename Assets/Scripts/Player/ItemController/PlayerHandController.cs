@@ -76,9 +76,12 @@ public class PlayerHandController : MonoBehaviour
             }
 
         }
-       
-        GameObject newMainItem = hand.transform.GetChild(index).gameObject;
-        newMainItem.SetActive(true);
+        GameObject newMainItem = new GameObject();
+        if (hand.transform.childCount > 0)
+        {
+            newMainItem = hand.transform.GetChild(index).gameObject;
+            newMainItem.SetActive(true);
+        }
         if (newMainItem.GetComponent<Weapon>() != null)
         {
             if (currControllerIndex != 0 || mainController == null)

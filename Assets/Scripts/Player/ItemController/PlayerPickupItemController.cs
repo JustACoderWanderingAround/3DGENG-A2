@@ -7,6 +7,8 @@ public class PlayerPickupItemController : MonoBehaviour
 {
     [SerializeField]
     private GameObject playerHand;
+    [SerializeField]
+    private ItemCanvasController itemCanvas;
     bool pickup;
     [SerializeField]
     private LayerMask itemLayermask;
