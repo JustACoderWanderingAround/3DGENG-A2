@@ -11,7 +11,7 @@ public class PlayerGunAimController : MonoBehaviour, IPlayerAimController
     private Vector3 currentPosition;
     private Vector3 targetPosition;
 
-    private Vector3 hipPosition = new Vector3(0.5f, -0.16f, 0.34f);
+    private Vector3 hipPosition = new Vector3(0.5f, -0.16f, 0.68f);
     private Vector3 hipRotation = new Vector3(0, 0f, 0);
 
     private Vector3 aimPosition = new Vector3(0f, -0.125f, 0.35f);

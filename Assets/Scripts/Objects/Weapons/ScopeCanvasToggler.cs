@@ -9,6 +9,7 @@ public class ScopeCanvasToggler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scopeCanvas.SetActive(Input.GetAxisRaw("Fire2") > 0);
+        if(GetComponent<Collider>().enabled == false)
+            scopeCanvas.SetActive(Input.GetAxisRaw("Fire2") > 0);
     }
 }

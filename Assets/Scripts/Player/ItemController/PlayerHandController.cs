@@ -32,7 +32,7 @@ public class PlayerHandController : MonoBehaviour
         SwapItem(0);
     }
 
-        // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
         int numberofItems = hand.transform.childCount; // Change this to the number of weapons you have
@@ -46,21 +46,28 @@ public class PlayerHandController : MonoBehaviour
                 break; // Stop checking for keys once one is pressed
             }
         }
-        if (mainController.GetComponent<IItemTypeController>().GetMainItem() != null)
+        if (mainController != null)
         {
-            if (Input.GetMouseButton(0))
+            if (mainController.GetComponent<IItemTypeController>().GetMainItem() != null)
             {
-                mainController.UseLeftMouseButton();
-            }
-            if (Input.GetMouseButton(1))
-            {
-                mainController.UseRightMouseButton();
+                if (Input.GetMouseButton(0))
+                {
+                    mainController.UseLeftMouseButton();
+                }
+                if (Input.GetMouseButton(1))
+                {
+                    mainController.UseRightMouseButton();
+                }
             }
         }
     }
-    void SwapItem(int index)
+    public void SwapItem(int index)
     {
-
+        if (index == -1)
+        {
+            mainController.SetMainItem(null);
+            return;
+        }
         if (hand.transform.childCount > 1)
         {
             for (int i = 0; i < hand.transform.childCount; ++i)
@@ -74,7 +81,7 @@ public class PlayerHandController : MonoBehaviour
         newMainItem.SetActive(true);
         if (newMainItem.GetComponent<Weapon>() != null)
         {
-            if (currControllerIndex != 0)
+            if (currControllerIndex != 0 || mainController == null)
             {
                 currControllerIndex = 0;
                 mainController = controllerList[0].GetComponent<PlayerShootController>();
@@ -84,7 +91,7 @@ public class PlayerHandController : MonoBehaviour
         }
         else if (newMainItem.GetComponent<Throwable>() != null)
         {
-            if (mainController != controllerList[1])
+            if (mainController != controllerList[1] || mainController == null)
             {
 
                 currControllerIndex = 1;

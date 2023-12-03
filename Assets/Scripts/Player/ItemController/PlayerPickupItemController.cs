@@ -10,9 +10,11 @@ public class PlayerPickupItemController : MonoBehaviour
     bool pickup;
     [SerializeField]
     private LayerMask itemLayermask;
+    private PlayerHandController handController;
     // Start is called before the first frame update
     void Start()
     {
+        handController = GetComponent<PlayerHandController>();
         for (int i = 0; i < playerHand.transform.childCount; ++i)
         {
             if (playerHand.transform.GetChild(i).GetComponent<Rigidbody>())
@@ -37,21 +39,22 @@ public class PlayerPickupItemController : MonoBehaviour
         {
             pickup = false;
         }
-    }
-    private void FixedUpdate()
-    {
-        var colliders = Physics.OverlapSphere(transform.position, 5f, itemLayermask);
+        var colliders = Physics.OverlapSphere(transform.position, 2f, itemLayermask);
         foreach (var collider in colliders)
         {
-            
+
             Debug.Log($"{collider.gameObject.name} is nearby");
             if (pickup)
             {
                 PickItemUp(collider.gameObject);
                 pickup = false;
             }
-            
+
         }
+    }
+    private void FixedUpdate()
+    {
+        
     }
     void DropCurrentItem()
     {
@@ -68,6 +71,7 @@ public class PlayerPickupItemController : MonoBehaviour
                 if (objectToDrop.gameObject.GetComponent<Collider>())
                     objectToDrop.gameObject.GetComponent<Collider>().enabled = true;
                 objectToDrop.transform.parent = null;
+                handController.SwapItem(-1);
                 return;
             }
         }
@@ -87,6 +91,10 @@ public class PlayerPickupItemController : MonoBehaviour
         itemToPick.transform.parent = playerHand.transform;
         itemToPick.transform.localPosition = Vector3.zero;
         itemToPick.transform.localRotation = Quaternion.identity;
-
+        if (playerHand.transform.childCount > 0)
+        {
+            itemToPick.SetActive(false);
+        }
+        handController.SwapItem(0);
     }
 }
