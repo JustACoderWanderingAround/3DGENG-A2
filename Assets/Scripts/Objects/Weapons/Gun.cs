@@ -103,35 +103,6 @@ public class Gun : Weapon
         GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, transform.rotation);
         newBullet.GetComponent<Bullet>().Init(transform.parent.transform.forward, currBullet.BulletVelocity);
     }
-    //private void SwapFireMode() 
-    //{
-    //    if (fireMode == FireMode.MODE_SEMIAUTO)
-    //    {
-    //        if (shootConfig.canAuto)
-    //        {
-    //            fireMode = FireMode.MODE_AUTO;
-    //        }
-    //        else if (shootConfig.canBurst)
-    //        {
-    //            fireMode = FireMode.MODE_BURST;
-    //        }
-    //    }
-    //    else if (fireMode == FireMode.MODE_AUTO)
-    //    {
-    //        if (shootConfig.canBurst)
-    //        {
-    //            fireMode = FireMode.MODE_BURST;
-    //        }
-    //        else
-    //        {
-    //            fireMode = FireMode.MODE_SEMIAUTO;
-    //        }
-    //    }
-    //    else if (fireMode == FireMode.MODE_BURST)
-    //    {
-    //        fireMode = FireMode.MODE_SEMIAUTO;
-    //    }
-    //}
     private void SwapFireMode()
     {
         if (!shootConfig.canBurst && !shootConfig.canAuto)
