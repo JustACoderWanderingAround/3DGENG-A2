@@ -17,7 +17,8 @@ MonoBehaviour:
   burstNum: 0
   maxSpreadTime: 5
   maxRecoilOffset: {x: 4, y: 4}
-  cameraShakeStrength: {x: 3, y: 0, z: 3}
+  cameraShakeStrength: {x: 3, y: 1.2, z: 3}
   damage: 35
   canAuto: 1
   canBurst: 0
+  maxMagNum: 0

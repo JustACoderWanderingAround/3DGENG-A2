@@ -20,7 +20,8 @@ public class PlayerAimCameraZoomController : MonoBehaviour,IPlayerAimController
     // Update is called once per frame
     void Update()
     {
-        OnUpdate();
+        if (mainWeapon != null)
+            OnUpdate();
     }
 
     public void SetMainWeapon(Weapon mainWeapon)

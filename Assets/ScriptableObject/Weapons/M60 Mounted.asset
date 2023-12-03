@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bec71579153204f8819fc83f0d65b3, type: 3}
+  m_Name: M60 Mounted
+  m_EditorClassIdentifier: 
+  isHitscan: 1
+  fireRate: 600
+  burstNum: 0
+  maxSpreadTime: 10
+  maxRecoilOffset: {x: 7, y: 7}
+  cameraShakeStrength: {x: 4, y: 4, z: 4}
+  damage: 42
+  canAuto: 1
+  canBurst: 0
+  maxMagNum: 3
