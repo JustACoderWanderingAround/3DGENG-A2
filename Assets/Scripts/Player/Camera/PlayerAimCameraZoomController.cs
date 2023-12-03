@@ -44,8 +44,8 @@ public class PlayerAimCameraZoomController : MonoBehaviour,IPlayerAimController
 
     public void OnUpdate()
     {
-        targetFOV = Vector3.Lerp(targetFOV, defaultFOV, mainWeapon.returnSpeed * Time.fixedDeltaTime);
-        currentFOV = Vector3.Slerp(currentFOV, targetFOV, mainWeapon.snappiness * Time.fixedDeltaTime);
+        targetFOV = Vector3.Lerp(targetFOV, defaultFOV, mainWeapon.adsSpeed * Time.fixedDeltaTime);
+        currentFOV = Vector3.Slerp(currentFOV, targetFOV, mainWeapon.adsSpeed * Time.fixedDeltaTime);
         zoomCamera.fieldOfView = currentFOV.x;
         targetFOV = defaultFOV;
     }

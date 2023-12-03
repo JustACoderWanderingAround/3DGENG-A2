@@ -40,8 +40,6 @@ public class PlayerShootController : IItemTypeController
 
     private int activeGunIndex = 0;
 
-    bool aiming = false;
-
     public void SetMainWeapon(Weapon newWeapon)
     {
         mainWeapon = newWeapon;
@@ -51,7 +49,7 @@ public class PlayerShootController : IItemTypeController
     {
         // set the game object which modifies camera recoil
         recoilRotator = recoilModifier.GetComponent<PlayerGunRecoilRotator>();
-        playerAimControllers = new List<IPlayerAimController> { aimController, zoomController };
+        playerAimControllers = new List<IPlayerAimController> { aimController, zoomController, recoilRotator };
     }
     private void OnEnable()
     {
@@ -61,17 +59,15 @@ public class PlayerShootController : IItemTypeController
     void Update()
     {
         // check aim classes
-        if (recoilRotator.mainWeapon != mainWeapon)
+        if (recoilRotator.GetMainWeapon() != mainWeapon)
         {
-            recoilRotator.mainWeapon = mainWeapon;
+            recoilRotator.SetMainWeapon(mainWeapon);
         }
         if (aimController.GetMainWeapon() != mainWeapon)
         {
             aimController.SetMainWeapon(mainWeapon);
             onReloadEvents.Invoke(mainWeapon);
         }
-
-        aiming = false;
         //todo: replace with axisRaw to allow flexible use of keys
         if (Input.GetKeyDown(KeyCode.R) && mainWeapon.currentBullets < mainWeapon.maxBullets)
         {
@@ -87,7 +83,6 @@ public class PlayerShootController : IItemTypeController
         if (mainWeapon != null)
         {
             bool mainWeaponShoot = mainWeapon.Shoot();
-            Debug.Log(mainWeaponShoot);
             if (mainWeaponShoot)
             {
 
@@ -103,7 +98,6 @@ public class PlayerShootController : IItemTypeController
 
     public override void UseRightMouseButton()
     {
-        aiming = true;
         //zoomController.AimCamera(mainWeapon);
         for (int i = 0; i < playerAimControllers.Count; ++i)
         {

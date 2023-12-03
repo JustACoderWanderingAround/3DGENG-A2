@@ -15,9 +15,9 @@ MonoBehaviour:
   isHitscan: 1
   fireRate: 600
   burstNum: 0
-  maxSpreadTime: 10
-  maxRecoilOffset: {x: 5.5, y: 5.5}
-  cameraShakeStrength: {x: 4, y: 4, z: 4}
+  maxSpreadTime: 0.8
+  maxRecoilOffset: {x: 5.5, y: 2.5}
+  cameraShakeStrength: {x: 3, y: 3, z: 3}
   damage: 42
   canAuto: 1
   canBurst: 0
