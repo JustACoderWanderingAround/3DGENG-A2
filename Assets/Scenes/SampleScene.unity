@@ -982,6 +982,7 @@ GameObject:
   - component: {fileID: 488486779}
   - component: {fileID: 488486780}
   - component: {fileID: 488486781}
+  - component: {fileID: 488486782}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1019,6 +1020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c6378bc4ddcab45837a44564866cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runningKey: 304
   moveSpeed: 2
   runningMulti: 2
   groundLayer:
@@ -1033,8 +1035,8 @@ MonoBehaviour:
   crouchMulti: 0.8
   proneMulti: 0.45
   stanceState: 0
-  stateIncreaseKey: 306
-  stateDecreaseKey: 304
+  stateIncreaseKey: 99
+  stateDecreaseKey: 120
 --- !u!114 &488486779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,6 +1090,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
+--- !u!114 &488486782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488486773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66699fa6e61748d418f6b30317e3075f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &503559185
 GameObject:
   m_ObjectHideFlags: 0
