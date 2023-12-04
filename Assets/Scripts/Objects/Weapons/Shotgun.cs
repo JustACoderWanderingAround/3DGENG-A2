@@ -34,7 +34,7 @@ public class Shotgun : Gun
                 transform.parent.transform.forward.z + (Random.Range(-1 * maxShellDisplacement.z, maxShellDisplacement.z) * maxShellDisplacementModifer.z)));
             //Debug.Log("newbulletQuat: " + newBulletQuat.x + " " + newBulletQuat.y + " " + newBulletQuat.z);
             GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, Quaternion.identity);
-            newBullet.GetComponent<Bullet>().Init(newBulletQuat.eulerAngles, currBullet.BulletVelocity);
+            newBullet.GetComponent<Bullet>().Init(newBulletQuat.eulerAngles, currBullet.BulletVelocity, shootConfig.damage);
         }
         currentBullets -= 1;
         shootTimer = maxShootTimer;

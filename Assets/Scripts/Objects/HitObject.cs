@@ -20,7 +20,11 @@ public class HitObject : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
-            Debug.Log("Hit by projectile");
+        {
+            DealDamage(collision.gameObject.GetComponent<Bullet>().damage);
+        }
+            
+
     }
     public void DealDamage (int damage)
     {

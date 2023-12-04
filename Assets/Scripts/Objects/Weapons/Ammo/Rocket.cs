@@ -18,8 +18,9 @@ public class Rocket : Bullet
         col.enabled = false;
         explosion = GetComponent<Explosion>();
     }
-    public override void Init(Vector3 direction, float velocity)
+    public override void Init(Vector3 direction, float velocity, int dmg)
     {
+        base.Init(direction, velocity, dmg);
     }
     // Update is called once per frame
     void Update()

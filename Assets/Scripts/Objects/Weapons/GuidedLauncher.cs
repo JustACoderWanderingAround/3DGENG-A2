@@ -49,7 +49,7 @@ public class GuidedLauncher : Gun
             shootTimer = maxShootTimer;
             GameObject newBullet = Instantiate(bulletPrefab, barrelTip.transform.position, transform.rotation);
             newBullet.GetComponent<TargetTrack>().InitTrack(objectToTrack);
-            newBullet.GetComponent<Bullet>().Init(transform.parent.transform.forward, currBullet.BulletVelocity);
+            newBullet.GetComponent<Bullet>().Init(transform.parent.transform.forward, currBullet.BulletVelocity, shootConfig.damage);
             return true;
         }
         return false;

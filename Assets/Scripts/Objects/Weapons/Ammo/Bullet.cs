@@ -14,14 +14,15 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     protected GameObject collisionEffect;
     protected Collider col;
-
-    public virtual void Init(Vector3 direction, float velocity)
+    public int damage = 20;
+    public virtual void Init(Vector3 direction, float velocity, int dmg)
     {
         this.direction = direction;
         this.velocity = velocity;
         //rb.AddForce(direction.x * velocity, direction.y * velocity, direction.z * velocity, ForceMode.Impulse);
         rb.velocity = direction * velocity;
         col = GetComponent<Collider>();
+        damage = dmg;
     }
     private void Update()
     {
@@ -38,5 +39,8 @@ public class Bullet : MonoBehaviour
         Destroy(instance, 1.5f);
         Destroy(gameObject);
     }
+    public void GetDamage()
+    {
 
+    }
 }

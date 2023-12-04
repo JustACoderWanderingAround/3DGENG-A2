@@ -275,7 +275,7 @@ MonoBehaviour:
   aimRotVector: {x: 0, y: -0.125, z: 0.35}
   gunshotAudio: {fileID: 0}
   reloadAudio: {fileID: 0}
-  aimZoomModifier: 0.1
+  aimZoomModifier: 0.01
   fireMode: 0
   currBullet: {fileID: 11400000, guid: 24b66d344d8c35e4582f07010627eddc, type: 2}
 --- !u!65 &2020818264402400070
