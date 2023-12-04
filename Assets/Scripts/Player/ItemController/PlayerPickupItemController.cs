@@ -13,6 +13,8 @@ public class PlayerPickupItemController : MonoBehaviour
     [SerializeField]
     private LayerMask itemLayermask;
     private PlayerHandController handController;
+    [SerializeField]
+    private GameObject pickUpItemCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,25 +36,27 @@ public class PlayerPickupItemController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Pickup");
             pickup = true;
         }
         else
         {
             pickup = false;
         }
-       
-    }
-    private void FixedUpdate()
-    {
         Collider[] colliders = Physics.OverlapSphere(transform.position, 2f, itemLayermask);
         UpdateItemPickUpList(colliders);
-        foreach (var collider in colliders)
+        if (pickup && colliders.Length > 0)
         {
-
-            Debug.Log($"{collider.gameObject.name} is nearby");
-
-
+            PickItemUp(itemController.itemRowList[itemController.activeRow]);
+            colliders = Physics.OverlapSphere(transform.position, 2f, itemLayermask);
+            UpdateItemPickUpList(colliders);
+        }
+        if (colliders.Length < 1)
+        {
+            pickUpItemCanvas.SetActive(false);
+        }
+        else
+        {
+            pickUpItemCanvas.SetActive(true);
         }
     }
     void DropCurrentItem()
@@ -95,21 +99,42 @@ public class PlayerPickupItemController : MonoBehaviour
             itemToPick.SetActive(false);
         }
         handController.SwapItem(0);
+        itemController.RemoveItem(itemToPick);
     }
     void UpdateItemPickUpList(Collider[] colliders)
     {
-        
-        //itemController.itemRowList.Clear();
-        foreach (Collider collider in colliders)
+        if (colliders.Length > itemController.itemRowList.Count)
         {
+            foreach (Collider collider in colliders)
+            {
+                foreach (GameObject item in itemController.itemRowList)
+                {
+                    if (item == collider.gameObject)
+                    {
+                        return;
+                    }
+                }
+                itemController.AddRow(collider);
+            }
+        }
+        else if (itemController.itemRowList.Count > colliders.Length)
+        {
+            GameObject itemToRemove = null;
             foreach (GameObject item in itemController.itemRowList)
             {
-               if (item == collider.gameObject)
+                foreach (Collider collider in colliders)
                 {
+                    if (item == collider.gameObject)
+                    {
+                        return;
+                    }
+                  
                     return;
                 }
+                itemToRemove = item;
+                break;
             }
-            itemController.AddRow(collider);
+            itemController.RemoveItem(itemToRemove);
         }
     }
 }
