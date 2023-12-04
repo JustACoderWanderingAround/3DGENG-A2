@@ -8,7 +8,7 @@ public class PlayerPickupItemController : MonoBehaviour
     [SerializeField]
     private GameObject playerHand;
     [SerializeField]
-    private ItemCanvasController itemCanvas;
+    private ItemCanvasController itemController;
     bool pickup;
     [SerializeField]
     private LayerMask itemLayermask;
@@ -41,22 +41,19 @@ public class PlayerPickupItemController : MonoBehaviour
         {
             pickup = false;
         }
-        var colliders = Physics.OverlapSphere(transform.position, 2f, itemLayermask);
+       
+    }
+    private void FixedUpdate()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 2f, itemLayermask);
+        UpdateItemPickUpList(colliders);
         foreach (var collider in colliders)
         {
 
             Debug.Log($"{collider.gameObject.name} is nearby");
-            if (pickup)
-            {
-                PickItemUp(collider.gameObject);
-                pickup = false;
-            }
+
 
         }
-    }
-    private void FixedUpdate()
-    {
-        
     }
     void DropCurrentItem()
     {
@@ -98,5 +95,21 @@ public class PlayerPickupItemController : MonoBehaviour
             itemToPick.SetActive(false);
         }
         handController.SwapItem(0);
+    }
+    void UpdateItemPickUpList(Collider[] colliders)
+    {
+        
+        //itemController.itemRowList.Clear();
+        foreach (Collider collider in colliders)
+        {
+            foreach (GameObject item in itemController.itemRowList)
+            {
+               if (item == collider.gameObject)
+                {
+                    return;
+                }
+            }
+            itemController.AddRow(collider);
+        }
     }
 }
