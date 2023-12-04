@@ -14,7 +14,7 @@ public class HitObject : MonoBehaviour
         if (health < 0)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-            Destroy(deathEffect, 1.0f);
+            Destroy(deathEffect, 0.1f);
             Destroy(gameObject);
         }
     }
